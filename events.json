@@ -1,0 +1,242 @@
+[
+  {
+    "date": "2026-03-31",
+    "type": "CB競拍截止",
+    "code": "64725",
+    "name": "保瑞五",
+    "tcri": "tcri5",
+    "amount": "10.00E",
+    "conv_price": "485",
+    "display": "CB競拍截止 64725 保瑞五 tcri5 10.00E 轉:485"
+  },
+  {
+    "date": "2026-04-15",
+    "type": "CB競拍掛牌",
+    "code": "64725",
+    "name": "保瑞五",
+    "tcri": "tcri5",
+    "amount": "10.00E",
+    "conv_price": "485",
+    "display": "CB競拍掛牌 64725 保瑞五 tcri5 10.00E 轉:485"
+  },
+  {
+    "date": "2026-04-21",
+    "type": "CB詢圈掛牌",
+    "code": "84762",
+    "name": "台境二",
+    "tcri": "tcri7",
+    "amount": "2.50E",
+    "conv_price": "19.7",
+    "display": "CB詢圈掛牌 84762 台境二 tcri7 2.50E 轉:19.7"
+  },
+  {
+    "date": "2026-04-20",
+    "type": "CB競拍截止",
+    "code": "47148",
+    "name": "永捷八",
+    "tcri": "有擔",
+    "amount": "3.00E",
+    "conv_price": "16.1",
+    "display": "CB競拍截止 47148 永捷八 有擔 3.00E 轉:16.1"
+  },
+  {
+    "date": "2026-05-04",
+    "type": "CB競拍掛牌",
+    "code": "47148",
+    "name": "永捷八",
+    "tcri": "有擔",
+    "amount": "3.00E",
+    "conv_price": "16.1",
+    "display": "CB競拍掛牌 47148 永捷八 有擔 3.00E 轉:16.1"
+  },
+  {
+    "date": "2026-04-21",
+    "type": "CB競拍截止",
+    "code": "82711",
+    "name": "宇瞻一",
+    "tcri": "tcri5",
+    "amount": "10.00E",
+    "conv_price": "165",
+    "display": "CB競拍截止 82711 宇瞻一 tcri5 10.00E 轉:165"
+  },
+  {
+    "date": "2026-05-05",
+    "type": "CB競拍掛牌",
+    "code": "82711",
+    "name": "宇瞻一",
+    "tcri": "tcri5",
+    "amount": "10.00E",
+    "conv_price": "165",
+    "display": "CB競拍掛牌 82711 宇瞻一 tcri5 10.00E 轉:165"
+  },
+  {
+    "date": "2026-09-26",
+    "type": "CB競拍掛牌",
+    "code": "52892",
+    "name": "宜鼎二",
+    "tcri": "tcri3",
+    "amount": "30E",
+    "conv_price": "9.60",
+    "display": "CB競拍掛牌 52892 宜鼎二 tcri3 30E 轉:9.60"
+  },
+  {
+    "date": "2026-01-22",
+    "type": "CB競拍掛牌",
+    "code": "12951",
+    "name": "生合一",
+    "tcri": "tcri6",
+    "amount": "4E",
+    "conv_price": "3.45",
+    "display": "CB競拍掛牌 12951 生合一 tcri6 4E 轉:3.45"
+  },
+  {
+    "date": "2026-03-03",
+    "type": "CB競拍掛牌",
+    "code": "77381",
+    "name": "東聯互動一",
+    "tcri": "tcri6",
+    "amount": "5E",
+    "conv_price": "2.74",
+    "display": "CB競拍掛牌 77381 東聯互動一 tcri6 5E 轉:2.74"
+  },
+  {
+    "date": "2026-01-01",
+    "type": "CB詢圈掛牌",
+    "code": "65462",
+    "name": "正基二",
+    "tcri": "tcri6",
+    "amount": "5E",
+    "conv_price": "6.68",
+    "display": "CB詢圈掛牌 65462 正基二 tcri6 5E 轉:6.68"
+  },
+  {
+    "date": "2026-01-01",
+    "type": "CB競拍掛牌",
+    "code": "65463",
+    "name": "正基三",
+    "tcri": "tcri6",
+    "amount": "2E",
+    "conv_price": "6.68",
+    "display": "CB競拍掛牌 65463 正基三 tcri6 2E 轉:6.68"
+  },
+  {
+    "date": "2026-04-15",
+    "type": "股票競拍截止",
+    "code": "7760",
+    "name": "享溫馨",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 7760 享溫馨"
+  },
+  {
+    "date": "2026-04-28",
+    "type": "股票競拍掛牌",
+    "code": "7760",
+    "name": "享溫馨",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7760 享溫馨"
+  },
+  {
+    "date": "2026-04-14",
+    "type": "股票競拍截止",
+    "code": "7820",
+    "name": "立盈",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 7820 立盈"
+  },
+  {
+    "date": "2026-04-27",
+    "type": "股票競拍掛牌",
+    "code": "7820",
+    "name": "立盈",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7820 立盈"
+  },
+  {
+    "date": "2026-04-09",
+    "type": "股票競拍截止",
+    "code": "7828",
+    "name": "創新服務",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "628.00",
+    "display": "股票競拍截止 7828 創新服務"
+  },
+  {
+    "date": "2026-04-22",
+    "type": "股票競拍掛牌",
+    "code": "7828",
+    "name": "創新服務",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "628.00",
+    "display": "股票競拍掛牌 7828 創新服務 承銷價:628.00"
+  },
+  {
+    "date": "2026-04-07",
+    "type": "股票競拍截止",
+    "code": "7794",
+    "name": "宏碁智新",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "31.00",
+    "display": "股票競拍截止 7794 宏碁智新"
+  },
+  {
+    "date": "2026-04-20",
+    "type": "股票競拍掛牌",
+    "code": "7794",
+    "name": "宏碁智新",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "31.00",
+    "display": "股票競拍掛牌 7794 宏碁智新 承銷價:31.00"
+  },
+  {
+    "date": "2026-04-07",
+    "type": "股票競拍截止",
+    "code": "7821",
+    "name": "神數",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "38.50",
+    "display": "股票競拍截止 7821 神數"
+  },
+  {
+    "date": "2026-04-20",
+    "type": "股票競拍掛牌",
+    "code": "7821",
+    "name": "神數",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "38.50",
+    "display": "股票競拍掛牌 7821 神數 承銷價:38.50"
+  },
+  {
+    "date": "2026-04-17",
+    "type": "股票競拍截止",
+    "code": "4178",
+    "name": "永笙-KY",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 4178 永笙-KY"
+  },
+  {
+    "date": "2026-04-30",
+    "type": "股票競拍掛牌",
+    "code": "4178",
+    "name": "永笙-KY",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 4178 永笙-KY"
+  }
+]

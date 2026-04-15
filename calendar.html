@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CB 行事曆</title>
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+  background: #F1F5F9;
+  color: #1E293B;
+  min-height: 100vh;
+}
+
+/* ===== App Header ===== */
+.app-header {
+  background: #1E3A5F;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.app-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-right: 8px;
+}
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-btn {
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #fff;
+  transition: background 0.15s;
+}
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.period-display {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #fff;
+  min-width: 220px;
+  text-align: center;
+}
+.today-btn {
+  background: rgba(255,255,255,0.18);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #fff;
+  transition: background 0.15s;
+}
+.today-btn:hover { background: rgba(255,255,255,0.3); }
+.view-toggle {
+  display: flex;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: auto;
+}
+.view-btn {
+  padding: 6px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  transition: all 0.15s;
+}
+.view-btn.active {
+  background: #fff;
+  color: #1E3A5F;
+}
+.data-badge {
+  margin-left: 8px;
+  font-size: 11px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+/* ===== Filter Bar ===== */
+.filter-bar {
+  background: #fff;
+  padding: 10px 24px;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.filter-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.filter-chip {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 2px solid;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s;
+  background: transparent;
+}
+.chip-all { border-color: #94A3B8; color: #64748B; }
+.chip-all.active { background: #64748B; color: #fff; border-color: #64748B; }
+.chip-CB競拍截止 { border-color: #EF4444; color: #EF4444; }
+.chip-CB競拍截止.active { background: #EF4444; color: #fff; }
+.chip-CB競拍掛牌 { border-color: #2563EB; color: #2563EB; }
+.chip-CB競拍掛牌.active { background: #2563EB; color: #fff; }
+.chip-CB詢圈掛牌 { border-color: #7C3AED; color: #7C3AED; }
+.chip-CB詢圈掛牌.active { background: #7C3AED; color: #fff; }
+.chip-股票競拍截止 { border-color: #16A34A; color: #16A34A; }
+.chip-股票競拍截止.active { background: #16A34A; color: #fff; }
+.chip-股票競拍掛牌 { border-color: #0D9488; color: #0D9488; }
+.chip-股票競拍掛牌.active { background: #0D9488; color: #fff; }
+.search-wrap {
+  margin-left: auto;
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  font-size: 14px;
+  pointer-events: none;
+}
+.search-box {
+  padding: 7px 12px 7px 32px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  font-size: 13px;
+  width: 220px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.search-box:focus { border-color: #2563EB; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+.event-count {
+  font-size: 12px;
+  color: #94A3B8;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+/* ===== Calendar Wrapper ===== */
+.calendar-wrap {
+  padding: 16px 10px 40px;
+}
+
+/* ===== Monthly Grid ===== */
+.month-container {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.weekday-header-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #F8FAFC;
+  border-bottom: 2px solid #E2E8F0;
+}
+.weekday-hdr {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.weekday-hdr.wknd { color: #EF4444; }
+.month-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.day-cell {
+  min-height: 176px;
+  padding: 6px 6px 4px;
+  border-right: 1px solid #F1F5F9;
+  border-bottom: 1px solid #F1F5F9;
+  position: relative;
+  transition: background 0.1s;
+}
+.day-cell:nth-child(7n) { border-right: none; }
+.day-cell:hover { background: #F8FAFC; }
+.day-cell.other-month { background: #FAFAFA; }
+.day-cell.other-month .day-num { color: #CBD5E1; }
+.day-cell.today { background: #EFF6FF; }
+.day-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+.day-cell.today .day-num {
+  background: #2563EB;
+  color: #fff;
+}
+.day-cell.wknd-cell .day-num { color: #EF4444; }
+.day-cell.today.wknd-cell .day-num { background: #EF4444; color: #fff; }
+
+/* ===== Event Chips ===== */
+.event-chip {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin: 2px 0;
+  padding: 3px 7px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.1s, transform 0.1s;
+  max-width: 100%;
+  line-height: 1.4;
+}
+.event-chip:hover { opacity: 0.88; transform: translateY(-1px); }
+.event-chip.type-CB競拍截止 { background: #EF4444; }
+.event-chip.type-CB競拍掛牌 { background: #2563EB; }
+.event-chip.type-CB詢圈掛牌 { background: #7C3AED; }
+.event-chip.type-股票競拍截止 { background: #16A34A; }
+.event-chip.type-股票競拍掛牌 { background: #0D9488; }
+.more-events {
+  font-size: 10px;
+  color: #94A3B8;
+  padding: 1px 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.more-events:hover { color: #475569; }
+
+/* ===== Weekly Grid ===== */
+.week-container {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.week-header-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 2px solid #E2E8F0;
+  background: #F8FAFC;
+}
+.week-day-hdr {
+  padding: 14px 10px;
+  text-align: center;
+  border-right: 1px solid #E2E8F0;
+}
+.week-day-hdr:last-child { border-right: none; }
+.week-dow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.week-date-num {
+  font-size: 26px;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1;
+}
+.week-day-hdr.today-col .week-date-num {
+  color: #fff;
+  background: #2563EB;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.week-day-hdr.wknd-col .week-dow { color: #EF4444; }
+.week-day-hdr.wknd-col .week-date-num { color: #EF4444; }
+.week-day-hdr.today-col.wknd-col .week-date-num { background: #EF4444; color: #fff; }
+.week-body-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  min-height: 720px;
+}
+.week-col {
+  padding: 10px 8px;
+  border-right: 1px solid #F1F5F9;
+  min-height: 720px;
+}
+.week-col:last-child { border-right: none; }
+.week-col.today-col { background: #EFF6FF; }
+.week-col .event-chip {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+/* ===== Event Count Legend ===== */
+.legend-row {
+  display: flex;
+  gap: 16px;
+  padding: 10px 24px 0;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748B;
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+}
+.modal-overlay.show { display: flex; }
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 0;
+  max-width: 460px;
+  width: 92%;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  overflow: hidden;
+  animation: slideUp 0.2s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.modal-header {
+  padding: 20px 24px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.modal-type-badge {
+  padding: 5px 14px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+.modal-close {
+  margin-left: auto;
+  background: #F1F5F9;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #64748B;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.modal-close:hover { background: #E2E8F0; }
+.modal-date-row {
+  padding: 0 24px 20px;
+  border-bottom: 1px solid #F1F5F9;
+}
+.modal-date-main {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E293B;
+  line-height: 1.2;
+}
+.modal-date-sub {
+  font-size: 13px;
+  color: #94A3B8;
+  margin-top: 2px;
+}
+.modal-body {
+  padding: 20px 24px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.modal-field { display: flex; flex-direction: column; gap: 4px; }
+.modal-field.full { grid-column: 1 / -1; }
+.modal-field-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.modal-field-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E293B;
+}
+.modal-display-text {
+  font-size: 13px;
+  color: #475569;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+}
+
+/* ===== Empty State ===== */
+.empty-cell { color: #CBD5E1; font-size: 11px; text-align: center; padding: 20px 0; }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<div class="app-header">
+  <span class="app-title">CB 行事曆</span>
+  <div class="nav-group">
+    <button class="nav-btn" onclick="navigate(-1)">&#9664;</button>
+    <div class="period-display" id="periodDisplay">loading...</div>
+    <button class="nav-btn" onclick="navigate(1)">&#9654;</button>
+  </div>
+  <button class="today-btn" onclick="goToday()">今天</button>
+  <span class="data-badge" id="dataBadge">0 件</span>
+  <div class="view-toggle">
+    <button class="view-btn active" id="btnMonth" onclick="switchView('month')">月曆</button>
+    <button class="view-btn"        id="btnWeek"  onclick="switchView('week')">週曆</button>
+  </div>
+</div>
+
+<!-- ===== Filter Bar ===== -->
+<div class="filter-bar">
+  <span class="filter-label">篩選</span>
+  <button class="filter-chip chip-all      active" id="chip-all"   onclick="toggleFilter('all')">全部</button>
+  <button class="filter-chip chip-CB競拍截止"        id="chip-CB競拍截止" onclick="toggleFilter('CB競拍截止')">🔴 CB競拍截止</button>
+  <button class="filter-chip chip-CB競拍掛牌"        id="chip-CB競拍掛牌" onclick="toggleFilter('CB競拍掛牌')">🔵 CB競拍掛牌</button>
+  <button class="filter-chip chip-CB詢圈掛牌"        id="chip-CB詢圈掛牌" onclick="toggleFilter('CB詢圈掛牌')">🟣 CB詢圈掛牌</button>
+  <button class="filter-chip chip-股票競拍截止"         id="chip-股票競拍截止" onclick="toggleFilter('股票競拍截止')">🟢 股票競拍截止</button>
+  <button class="filter-chip chip-股票競拍掛牌"         id="chip-股票競拍掛牌" onclick="toggleFilter('股票競拍掛牌')">🩵 股票競拍掛牌</button>
+  <span class="event-count" id="eventCount"></span>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-box" type="text" id="searchBox"
+           placeholder="搜尋代號 / 名稱..."
+           oninput="onSearch(this.value)">
+  </div>
+</div>
+
+<!-- ===== Calendar ===== -->
+<div class="calendar-wrap" id="calendarWrap"></div>
+
+<!-- ===== Modal ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="onOverlayClick(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-header">
+      <div class="modal-type-badge" id="mBadge"></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-date-row">
+      <div class="modal-date-main" id="mDate"></div>
+      <div class="modal-date-sub"  id="mDateSub"></div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-field">
+        <div class="modal-field-label">債券代號</div>
+        <div class="modal-field-value" id="mCode"></div>
+      </div>
+      <div class="modal-field">
+        <div class="modal-field-label">債券名稱</div>
+        <div class="modal-field-value" id="mName"></div>
+      </div>
+      <div class="modal-field">
+        <div class="modal-field-label">TCRI 評等</div>
+        <div class="modal-field-value" id="mTcri"></div>
+      </div>
+      <div class="modal-field">
+        <div class="modal-field-label">發行金額</div>
+        <div class="modal-field-value" id="mAmount"></div>
+      </div>
+      <div class="modal-field full">
+        <div class="modal-field-label">轉換價</div>
+        <div class="modal-field-value" id="mConv"></div>
+      </div>
+      <div class="modal-field full">
+        <div class="modal-field-label">行事曆顯示文字</div>
+        <div class="modal-display-text" id="mDisplay"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== 事件資料 =====
+// __EVENTS_START__
+const EVENTS_DATA = [{"date": "2026-03-31", "type": "CB競拍截止", "code": "64725", "name": "保瑞五", "tcri": "tcri5", "amount": "10.00E", "conv_price": "485", "display": "CB競拍截止 64725 保瑞五 tcri5 10.00E 轉:485"}, {"date": "2026-04-15", "type": "CB競拍掛牌", "code": "64725", "name": "保瑞五", "tcri": "tcri5", "amount": "10.00E", "conv_price": "485", "display": "CB競拍掛牌 64725 保瑞五 tcri5 10.00E 轉:485"}, {"date": "2026-04-21", "type": "CB詢圈掛牌", "code": "84762", "name": "台境二", "tcri": "tcri7", "amount": "2.50E", "conv_price": "19.7", "display": "CB詢圈掛牌 84762 台境二 tcri7 2.50E 轉:19.7"}, {"date": "2026-04-20", "type": "CB競拍截止", "code": "47148", "name": "永捷八", "tcri": "有擔", "amount": "3.00E", "conv_price": "16.1", "display": "CB競拍截止 47148 永捷八 有擔 3.00E 轉:16.1"}, {"date": "2026-05-04", "type": "CB競拍掛牌", "code": "47148", "name": "永捷八", "tcri": "有擔", "amount": "3.00E", "conv_price": "16.1", "display": "CB競拍掛牌 47148 永捷八 有擔 3.00E 轉:16.1"}, {"date": "2026-04-21", "type": "CB競拍截止", "code": "82711", "name": "宇瞻一", "tcri": "tcri5", "amount": "10.00E", "conv_price": "165", "display": "CB競拍截止 82711 宇瞻一 tcri5 10.00E 轉:165"}, {"date": "2026-05-05", "type": "CB競拍掛牌", "code": "82711", "name": "宇瞻一", "tcri": "tcri5", "amount": "10.00E", "conv_price": "165", "display": "CB競拍掛牌 82711 宇瞻一 tcri5 10.00E 轉:165"}, {"date": "2026-09-26", "type": "CB競拍掛牌", "code": "52892", "name": "宜鼎二", "tcri": "tcri3", "amount": "30E", "conv_price": "9.60", "display": "CB競拍掛牌 52892 宜鼎二 tcri3 30E 轉:9.60"}, {"date": "2026-01-22", "type": "CB競拍掛牌", "code": "12951", "name": "生合一", "tcri": "tcri6", "amount": "4E", "conv_price": "3.45", "display": "CB競拍掛牌 12951 生合一 tcri6 4E 轉:3.45"}, {"date": "2026-03-03", "type": "CB競拍掛牌", "code": "77381", "name": "東聯互動一", "tcri": "tcri6", "amount": "5E", "conv_price": "2.74", "display": "CB競拍掛牌 77381 東聯互動一 tcri6 5E 轉:2.74"}, {"date": "2026-01-01", "type": "CB詢圈掛牌", "code": "65462", "name": "正基二", "tcri": "tcri6", "amount": "5E", "conv_price": "6.68", "display": "CB詢圈掛牌 65462 正基二 tcri6 5E 轉:6.68"}, {"date": "2026-01-01", "type": "CB競拍掛牌", "code": "65463", "name": "正基三", "tcri": "tcri6", "amount": "2E", "conv_price": "6.68", "display": "CB競拍掛牌 65463 正基三 tcri6 2E 轉:6.68"}, {"date": "2026-04-15", "type": "股票競拍截止", "code": "7760", "name": "享溫馨", "tcri": "", "amount": "", "conv_price": "", "display": "股票競拍截止 7760 享溫馨"}, {"date": "2026-04-28", "type": "股票競拍掛牌", "code": "7760", "name": "享溫馨", "tcri": "", "amount": "", "conv_price": "", "display": "股票競拍掛牌 7760 享溫馨"}, {"date": "2026-04-14", "type": "股票競拍截止", "code": "7820", "name": "立盈", "tcri": "", "amount": "", "conv_price": "", "display": "股票競拍截止 7820 立盈"}, {"date": "2026-04-27", "type": "股票競拍掛牌", "code": "7820", "name": "立盈", "tcri": "", "amount": "", "conv_price": "", "display": "股票競拍掛牌 7820 立盈"}, {"date": "2026-04-09", "type": "股票競拍截止", "code": "7828", "name": "創新服務", "tcri": "", "amount": "", "conv_price": "628.00", "display": "股票競拍截止 7828 創新服務"}, {"date": "2026-04-22", "type": "股票競拍掛牌", "code": "7828", "name": "創新服務", "tcri": "", "amount": "", "conv_price": "628.00", "display": "股票競拍掛牌 7828 創新服務 承銷價:628.00"}, {"date": "2026-04-07", "type": "股票競拍截止", "code": "7794", "name": "宏碁智新", "tcri": "", "amount": "", "conv_price": "31.00", "display": "股票競拍截止 7794 宏碁智新"}, {"date": "2026-04-20", "type": "股票競拍掛牌", "code": "7794", "name": "宏碁智新", "tcri": "", "amount": "", "conv_price": "31.00", "display": "股票競拍掛牌 7794 宏碁智新 承銷價:31.00"}, {"date": "2026-04-07", "type": "股票競拍截止", "code": "7821", "name": "神數", "tcri": "", "amount": "", "conv_price": "38.50", "display": "股票競拍截止 7821 神數"}, {"date": "2026-04-20", "type": "股票競拍掛牌", "code": "7821", "name": "神數", "tcri": "", "amount": "", "conv_price": "38.50", "display": "股票競拍掛牌 7821 神數 承銷價:38.50"}, {"date": "2026-04-17", "type": "股票競拍截止", "code": "4178", "name": "永笙-KY", "tcri": "", "amount": "", "conv_price": "", "display": "股票競拍截止 4178 永笙-KY"}, {"date": "2026-04-30", "type": "股票競拍掛牌", "code": "4178", "name": "永笙-KY", "tcri": "", "amount": "", "conv_price": "", "display": "股票競拍掛牌 4178 永笙-KY"}];
+// __EVENTS_END__
+
+// ===== 常數 =====
+const TYPE_COLOR = {
+  'CB競拍截止': '#EF4444',
+  'CB競拍掛牌': '#2563EB',
+  'CB詢圈掛牌': '#7C3AED',
+  '股票競拍截止':  '#16A34A',
+  '股票競拍掛牌':  '#0D9488',
+};
+const WEEKDAYS_ZH = ['日','一','二','三','四','五','六'];
+const MONTHS_ZH   = ['一月','二月','三月','四月','五月','六月',
+                     '七月','八月','九月','十月','十一月','十二月'];
+const DOW_EN      = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+// ===== 狀態 =====
+let currentView    = 'month';
+let currentDate    = new Date();
+let activeFilters  = new Set(['all']);
+let searchQuery    = '';
+
+// ===== 資料處理 =====
+
+function getFiltered() {
+  return EVENTS_DATA.filter(e => {
+    const typeOk   = activeFilters.has('all') || activeFilters.has(e.type);
+    const searchOk = !searchQuery ||
+      (e.code  || '').includes(searchQuery) ||
+      (e.name  || '').includes(searchQuery) ||
+      (e.display || '').includes(searchQuery);
+    return typeOk && searchOk;
+  });
+}
+
+function groupByDate(events) {
+  const map = {};
+  for (const e of events) {
+    if (!map[e.date]) map[e.date] = [];
+    map[e.date].push(e);
+  }
+  return map;
+}
+
+function toDateStr(y, m1, d) {
+  // m1: 1-based month
+  return `${y}-${String(m1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+
+function todayStr() {
+  const t = new Date();
+  return toDateStr(t.getFullYear(), t.getMonth()+1, t.getDate());
+}
+
+function formatDateLabel(dateStr) {
+  const [y,m,d] = dateStr.split('-').map(Number);
+  const dow = new Date(y, m-1, d).getDay();
+  return `${y}年${m}月${d}日（${['日','一','二','三','四','五','六'][dow]}）`;
+}
+
+// ===== 渲染工具 =====
+
+function chipHTML(e, compact=true) {
+  const color = TYPE_COLOR[e.type] || '#94A3B8';
+  const txt   = compact ? e.display : e.display;
+  const idx   = EVENTS_DATA.indexOf(e);
+  return `<div class="event-chip type-${e.type}"
+    style="background:${color}"
+    onclick="showModal(event,${idx})"
+    title="${escHtml(e.display)}">${escHtml(txt)}</div>`;
+}
+
+function escHtml(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ===== 月曆渲染 =====
+
+function renderMonth() {
+  const y  = currentDate.getFullYear();
+  const m  = currentDate.getMonth();   // 0-based
+  const eventMap = groupByDate(getFiltered());
+  const today    = todayStr();
+
+  document.getElementById('periodDisplay').textContent =
+    `${y}年 ${MONTHS_ZH[m]}`;
+
+  const firstDow    = new Date(y, m, 1).getDay();   // 0=Sun
+  const daysInMonth = new Date(y, m+1, 0).getDate();
+  const prevDays    = new Date(y, m, 0).getDate();
+  const totalCells  = Math.ceil((firstDow + daysInMonth) / 7) * 7;
+
+  let cells = '';
+
+  for (let cell = 0; cell < totalCells; cell++) {
+    const dow = cell % 7;
+    let dayNum, dateS, otherMonth;
+
+    if (cell < firstDow) {
+      // Previous month
+      dayNum     = prevDays - (firstDow - 1 - cell);
+      const pm   = m === 0 ? 12 : m;
+      const py   = m === 0 ? y-1 : y;
+      dateS      = toDateStr(py, pm, dayNum);
+      otherMonth = true;
+    } else if (cell < firstDow + daysInMonth) {
+      dayNum     = cell - firstDow + 1;
+      dateS      = toDateStr(y, m+1, dayNum);
+      otherMonth = false;
+    } else {
+      dayNum     = cell - firstDow - daysInMonth + 1;
+      const nm   = m === 11 ? 1 : m+2;
+      const ny   = m === 11 ? y+1 : y;
+      dateS      = toDateStr(ny, nm, dayNum);
+      otherMonth = true;
+    }
+
+    const isToday   = dateS === today;
+    const isWeekend = dow === 0 || dow === 6;
+    const dayEvents = eventMap[dateS] || [];
+    const MAX_SHOW  = 3;
+
+    let evHtml = '';
+    dayEvents.slice(0, MAX_SHOW).forEach(e => { evHtml += chipHTML(e); });
+    if (dayEvents.length > MAX_SHOW) {
+      evHtml += `<div class="more-events">+${dayEvents.length - MAX_SHOW} 更多</div>`;
+    }
+
+    let cls = 'day-cell';
+    if (otherMonth) cls += ' other-month';
+    if (isToday)    cls += ' today';
+    if (isWeekend)  cls += ' wknd-cell';
+
+    cells += `<div class="${cls}">
+      <span class="day-num">${dayNum}</span>
+      ${evHtml}
+    </div>`;
+  }
+
+  const hdrRow = ['日','一','二','三','四','五','六'].map((d,i) =>
+    `<div class="weekday-hdr${i===0||i===6?' wknd':''}">${d}</div>`
+  ).join('');
+
+  document.getElementById('calendarWrap').innerHTML = `
+    <div class="month-container">
+      <div class="weekday-header-row">${hdrRow}</div>
+      <div class="month-body">${cells}</div>
+    </div>`;
+}
+
+// ===== 週曆渲染 =====
+
+function renderWeek() {
+  const eventMap = groupByDate(getFiltered());
+  const today    = todayStr();
+
+  // Start of week (Sunday)
+  const base = new Date(currentDate);
+  base.setDate(base.getDate() - base.getDay());
+
+  const days = Array.from({length:7}, (_,i) => {
+    const d = new Date(base);
+    d.setDate(base.getDate() + i);
+    return d;
+  });
+
+  const s = days[0], e = days[6];
+  document.getElementById('periodDisplay').textContent =
+    `${s.getFullYear()}年  ${s.getMonth()+1}/${s.getDate()} – ${e.getMonth()+1}/${e.getDate()}`;
+
+  let hdrs = '', cols = '';
+  days.forEach((d, i) => {
+    const ds       = toDateStr(d.getFullYear(), d.getMonth()+1, d.getDate());
+    const isToday  = ds === today;
+    const isWknd   = i === 0 || i === 6;
+    let hCls       = 'week-day-hdr';
+    if (isToday) hCls += ' today-col';
+    if (isWknd)  hCls += ' wknd-col';
+
+    hdrs += `<div class="${hCls}">
+      <div class="week-dow">${DOW_EN[i]}</div>
+      <div class="week-date-num">${d.getDate()}</div>
+    </div>`;
+
+    const dayEvents = eventMap[ds] || [];
+    let evHtml = dayEvents.length
+      ? dayEvents.map(ev => chipHTML(ev, false)).join('')
+      : '';
+
+    let cCls = 'week-col';
+    if (isToday) cCls += ' today-col';
+    cols += `<div class="${cCls}">${evHtml}</div>`;
+  });
+
+  document.getElementById('calendarWrap').innerHTML = `
+    <div class="week-container">
+      <div class="week-header-row">${hdrs}</div>
+      <div class="week-body-row">${cols}</div>
+    </div>`;
+}
+
+// ===== 互動 =====
+
+function render() {
+  const filtered = getFiltered();
+  document.getElementById('dataBadge').textContent = `${filtered.length} 件`;
+  document.getElementById('eventCount').textContent =
+    `顯示 ${filtered.length} / ${EVENTS_DATA.length} 筆`;
+
+  if (currentView === 'month') renderMonth();
+  else                         renderWeek();
+}
+
+function switchView(v) {
+  currentView = v;
+  document.getElementById('btnMonth').classList.toggle('active', v==='month');
+  document.getElementById('btnWeek').classList.toggle('active',  v==='week');
+  render();
+}
+
+function navigate(dir) {
+  if (currentView === 'month') {
+    currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + dir, 1);
+  } else {
+    currentDate = new Date(currentDate);
+    currentDate.setDate(currentDate.getDate() + dir * 7);
+  }
+  render();
+}
+
+function goToday() {
+  currentDate = new Date();
+  render();
+}
+
+function toggleFilter(type) {
+  if (type === 'all') {
+    activeFilters = new Set(['all']);
+  } else {
+    activeFilters.delete('all');
+    if (activeFilters.has(type)) {
+      activeFilters.delete(type);
+      if (activeFilters.size === 0) activeFilters = new Set(['all']);
+    } else {
+      activeFilters.add(type);
+    }
+  }
+  ['all','CB競拍截止','CB競拍掛牌','CB詢圈掛牌','股票競拍截止','股票競拍掛牌'].forEach(t => {
+    const el = document.getElementById(`chip-${t}`);
+    if (el) el.classList.toggle('active', activeFilters.has(t));
+  });
+  render();
+}
+
+function onSearch(val) {
+  searchQuery = val.trim();
+  render();
+}
+
+// ===== Modal =====
+
+function showModal(domEvt, idx) {
+  domEvt.stopPropagation();
+  const e = EVENTS_DATA[idx];
+  if (!e) return;
+
+  const color = TYPE_COLOR[e.type] || '#94A3B8';
+  document.getElementById('mBadge').textContent        = e.type;
+  document.getElementById('mBadge').style.background   = color;
+  document.getElementById('mDate').textContent         = formatDateLabel(e.date);
+  document.getElementById('mDateSub').textContent      = e.date;
+  document.getElementById('mCode').textContent         = e.code    || '—';
+  document.getElementById('mName').textContent         = e.name    || '—';
+  document.getElementById('mTcri').textContent         = e.tcri    || '—';
+  document.getElementById('mAmount').textContent       = e.amount  || '—';
+  document.getElementById('mConv').textContent         = e.conv_price ? e.conv_price : '—';
+  document.getElementById('mDisplay').textContent      = e.display || '—';
+
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+function onOverlayClick(evt) {
+  if (evt.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ===== Init =====
+render();
+</script>
+</body>
+</html>
