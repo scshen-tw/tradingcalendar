@@ -438,26 +438,6 @@ def main():
                 for e in sorted(events, key=lambda x: x['date']):
                     print(f"  {e['date']}  {e['display']}")
 
-    print(f"✅ 找到郵件: {email.Subject}")
-    print(f"   收信時間: {email.ReceivedTime}\n")
-
-    try:
-        ref_year = email.ReceivedTime.year
-    except Exception:
-        ref_year = datetime.now().year
-
-    # 提取表格
-    print(f"📊 解析表格資料 (參考年份: {ref_year})...")
-    events = extract_events_from_email(email, ref_year)
-
-    # 加入顯示文字
-    for e in events:
-        e['display'] = format_display(e)
-
-    print(f"\nCB 事件共 {len(events)} 筆:")
-    for e in sorted(events, key=lambda x: x['date']):
-        print(f"  {e['date']}  {e['display']}")
-
     # 合併股票競拍事件
     print(f"\n📈 讀取股票競拍資料...")
     try:
