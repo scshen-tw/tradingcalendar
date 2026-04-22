@@ -8,9 +8,11 @@
 
 import json
 import os
+import urllib.request
 from datetime import datetime, timedelta
 
-STOCKS_JSON = r"d:\VS Code\Auction\auction_stocks.json"
+STOCKS_JSON   = r"d:\VS Code\Auction\auction_stocks.json"
+STOCKS_JSON_URL = "https://raw.githubusercontent.com/scshen-tw/auction-viewer/main/auction_stocks.json"
 
 
 def parse_date_slash(s):
@@ -33,12 +35,19 @@ def to_iso(d):
 
 def extract_stock_events():
     """提取股票競拍截止事件，回傳 list of event dict（與 CB 行事曆格式一致）"""
-    if not os.path.exists(STOCKS_JSON):
-        print(f"  ⚠️  找不到 {STOCKS_JSON}")
-        return []
-
-    with open(STOCKS_JSON, encoding='utf-8') as f:
-        stocks = json.load(f)
+    if os.path.exists(STOCKS_JSON):
+        with open(STOCKS_JSON, encoding='utf-8') as f:
+            stocks = json.load(f)
+        print(f"  來源：本機 {STOCKS_JSON}")
+    else:
+        print(f"  本機檔案不存在，從 GitHub 下載...")
+        try:
+            with urllib.request.urlopen(STOCKS_JSON_URL, timeout=30) as resp:
+                stocks = json.loads(resp.read().decode('utf-8'))
+            print(f"  來源：{STOCKS_JSON_URL}（共 {len(stocks)} 筆）")
+        except Exception as e:
+            print(f"  ⚠️  下載失敗: {e}")
+            return []
 
     today = datetime.now().date()
     cutoff = today - timedelta(days=14)   # 兩週前
