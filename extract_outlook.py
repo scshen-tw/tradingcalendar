@@ -338,6 +338,22 @@ def generate_html(events, path):
 
 # ========== 主程式 ==========
 
+STOCK_TYPES = {'股票競拍截止', '股票競拍掛牌'}
+
+
+def load_existing_cb_events():
+    """Outlook 不可用時，從現有 events.json 讀回 CB 事件做 fallback"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(script_dir, CONFIG['output_json'])
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding='utf-8') as f:
+        events = json.load(f)
+    cb = [e for e in events if e.get('type') not in STOCK_TYPES]
+    print(f"  ⚠️  Outlook 不可用，沿用現有 CB 事件 {len(cb)} 筆")
+    return cb
+
+
 def main():
     print("=" * 50)
     print("  CB行事曆資料提取器")
@@ -346,54 +362,81 @@ def main():
     print(f"郵件主旨:   {CONFIG['email_subject']}\n")
 
     # 連線 Outlook
+    outlook_ok = False
     try:
         outlook   = win32com.client.Dispatch("Outlook.Application")
         namespace = outlook.GetNamespace("MAPI")
+        outlook_ok = True
     except Exception as e:
-        print(f"❌ 無法連線 Outlook: {e}")
-        sys.exit(1)
+        print(f"⚠️  無法連線 Outlook: {e}")
+        print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
 
-    # 尋找目標資料夾
-    print(f"🔍 搜尋「{CONFIG['outlook_folder']}」資料夾...")
-    folder = find_cbas_folder(namespace)
-    if not folder:
-        print(f"❌ 找不到資料夾「{CONFIG['outlook_folder']}」")
-        sys.exit(1)
-    print(f"✅ 找到資料夾: {folder.Name}")
+    if not outlook_ok:
+        events = load_existing_cb_events()
+    else:
+        # 尋找目標資料夾
+        print(f"🔍 搜尋「{CONFIG['outlook_folder']}」資料夾...")
+        folder = find_cbas_folder(namespace)
+        if not folder:
+            print(f"⚠️  找不到資料夾「{CONFIG['outlook_folder']}」")
+            print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
+            events = load_existing_cb_events()
+        else:
+            print(f"✅ 找到資料夾: {folder.Name}")
 
-    # 尋找最新符合主旨的郵件
-    print(f"🔍 搜尋主旨含「{CONFIG['email_subject']}」的郵件...")
-    items = folder.Items
-    items.Sort("[ReceivedTime]", True)
+            # 尋找最新符合主旨的郵件
+            print(f"🔍 搜尋主旨含「{CONFIG['email_subject']}」的郵件...")
+            items = folder.Items
+            items.Sort("[ReceivedTime]", True)
 
-    email = None
-    for msg in items:
-        try:
-            if CONFIG['email_subject'].lower() in (msg.Subject or '').lower():
-                email = msg
-                break
-        except Exception:
-            pass
+            email = None
+            for msg in items:
+                try:
+                    if CONFIG['email_subject'].lower() in (msg.Subject or '').lower():
+                        email = msg
+                        break
+                except Exception:
+                    pass
 
-    if not email:
-        print(f"❌ 找不到符合主旨的郵件")
-        print(f"\n📋 cbas 資料夾內所有郵件主旨（最新20封）：")
-        items2 = folder.Items
-        items2.Sort("[ReceivedTime]", True)
-        count = 0
-        for msg in items2:
-            try:
-                subj = msg.Subject or '（無主旨）'
-                recv = str(msg.ReceivedTime)[:10]
-                print(f"  [{recv}] {subj}")
-                count += 1
-                if count >= 20:
-                    break
-            except Exception:
-                pass
-        if count == 0:
-            print("  （資料夾是空的）")
-        sys.exit(1)
+            if not email:
+                print(f"⚠️  找不到符合主旨的郵件")
+                print(f"\n📋 cbas 資料夾內所有郵件主旨（最新20封）：")
+                items2 = folder.Items
+                items2.Sort("[ReceivedTime]", True)
+                count = 0
+                for msg in items2:
+                    try:
+                        subj = msg.Subject or '（無主旨）'
+                        recv = str(msg.ReceivedTime)[:10]
+                        print(f"  [{recv}] {subj}")
+                        count += 1
+                        if count >= 20:
+                            break
+                    except Exception:
+                        pass
+                if count == 0:
+                    print("  （資料夾是空的）")
+                print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
+                events = load_existing_cb_events()
+            else:
+                print(f"✅ 找到郵件: {email.Subject}")
+                print(f"   收信時間: {email.ReceivedTime}\n")
+
+                try:
+                    ref_year = email.ReceivedTime.year
+                except Exception:
+                    ref_year = datetime.now().year
+
+                # 提取表格
+                print(f"📊 解析表格資料 (參考年份: {ref_year})...")
+                events = extract_events_from_email(email, ref_year)
+
+                for e in events:
+                    e['display'] = format_display(e)
+
+                print(f"\nCB 事件共 {len(events)} 筆:")
+                for e in sorted(events, key=lambda x: x['date']):
+                    print(f"  {e['date']}  {e['display']}")
 
     print(f"✅ 找到郵件: {email.Subject}")
     print(f"   收信時間: {email.ReceivedTime}\n")
