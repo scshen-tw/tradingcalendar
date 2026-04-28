@@ -1,10 +1,42 @@
 @echo off
+setlocal
 chcp 65001 >nul
-echo [%date% %time%] 開始更新 CB 行事曆...
+set PYTHONIOENCODING=utf-8
+
 cd /d "%~dp0"
-python extract_outlook.py >> update_log.txt 2>&1
-if %errorlevel% == 0 (
-    echo [%date% %time%] ✅ 更新成功
-) else (
-    echo [%date% %time%] ❌ 更新失敗，請查看 update_log.txt
+
+echo [%date% %time%] Starting CB calendar update... >> update_log.txt
+
+git pull --rebase --autostash origin main >> update_log.txt 2>&1
+if errorlevel 1 (
+    echo [%date% %time%] ERROR: git pull failed. >> update_log.txt
+    exit /b 1
 )
+
+python extract_outlook.py >> update_log.txt 2>&1
+if errorlevel 1 (
+    echo [%date% %time%] ERROR: extract_outlook.py failed. >> update_log.txt
+    exit /b 1
+)
+
+git add calendar.html events.json >> update_log.txt 2>&1
+git diff --cached --quiet
+if %errorlevel% == 0 (
+    echo [%date% %time%] No changes to commit. >> update_log.txt
+    exit /b 0
+)
+
+git commit -m "auto update %date% %time%" >> update_log.txt 2>&1
+if errorlevel 1 (
+    echo [%date% %time%] ERROR: git commit failed. >> update_log.txt
+    exit /b 1
+)
+
+git push origin main >> update_log.txt 2>&1
+if errorlevel 1 (
+    echo [%date% %time%] ERROR: git push failed. >> update_log.txt
+    exit /b 1
+)
+
+echo [%date% %time%] CB calendar update completed. >> update_log.txt
+exit /b 0

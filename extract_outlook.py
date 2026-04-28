@@ -14,6 +14,9 @@ import re
 import os
 from datetime import datetime
 
+sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 # ========== 依賴檢查 ==========
 try:
     import win32com.client
