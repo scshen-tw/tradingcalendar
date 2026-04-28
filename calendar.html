@@ -94,6 +94,41 @@ body {
   border-radius: 20px;
   padding: 3px 10px;
 }
+.app-page-tabs {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.app-page-btn {
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.78);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.app-page-btn:hover {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+.app-page-btn.active {
+  background: #fff;
+  color: #1E3A5F;
+  border-color: #fff;
+}
+.auction-page-frame {
+  display: none;
+  width: 100%;
+  height: calc(100vh - 60px);
+  border: 0;
+  background: #000;
+}
+body.auction-page .calendar-only { display: none !important; }
+body.auction-page .auction-page-frame { display: block; }
+body.calendar-page .auction-page-frame { display: none; }
 
 /* ===== Filter Bar ===== */
 .filter-bar {
@@ -466,26 +501,30 @@ body {
 ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
 </style>
 </head>
-<body>
+<body class="calendar-page">
 
 <!-- ===== Header ===== -->
 <div class="app-header">
   <span class="app-title">交易行事曆</span>
-  <div class="nav-group">
+  <div class="app-page-tabs">
+    <button class="app-page-btn active" id="btnCalendarPage" onclick="switchAppPage('calendar')">行事曆</button>
+    <button class="app-page-btn" id="btnAuctionPage" onclick="switchAppPage('auction')">競拍資料</button>
+  </div>
+  <div class="nav-group calendar-only">
     <button class="nav-btn" onclick="navigate(-1)">&#9664;</button>
     <div class="period-display" id="periodDisplay">loading...</div>
     <button class="nav-btn" onclick="navigate(1)">&#9654;</button>
   </div>
-  <button class="today-btn" onclick="goToday()">今天</button>
-  <span class="data-badge" id="dataBadge">0 件</span>
-  <div class="view-toggle">
+  <button class="today-btn calendar-only" onclick="goToday()">今天</button>
+  <span class="data-badge calendar-only" id="dataBadge">0 件</span>
+  <div class="view-toggle calendar-only">
     <button class="view-btn active" id="btnMonth" onclick="switchView('month')">月曆</button>
     <button class="view-btn"        id="btnWeek"  onclick="switchView('week')">週曆</button>
   </div>
 </div>
 
 <!-- ===== Filter Bar ===== -->
-<div class="filter-bar">
+<div class="filter-bar calendar-only">
   <span class="filter-label">篩選</span>
   <button class="filter-chip chip-all      active" id="chip-all"   onclick="toggleFilter('all')">全部</button>
   <button class="filter-chip chip-CB競拍截止"        id="chip-CB競拍截止" onclick="toggleFilter('CB競拍截止')">🔴 CB競拍截止</button>
@@ -503,10 +542,13 @@ body {
 </div>
 
 <!-- ===== Calendar ===== -->
-<div class="calendar-wrap" id="calendarWrap"></div>
+<div class="calendar-wrap calendar-only" id="calendarWrap"></div>
+
+<!-- ===== Auction Viewer ===== -->
+<iframe class="auction-page-frame" id="auctionPageFrame" src="../Auction/auction_viewer.html" title="競拍資料"></iframe>
 
 <!-- ===== Modal ===== -->
-<div class="modal-overlay" id="modalOverlay" onclick="onOverlayClick(event)">
+<div class="modal-overlay calendar-only" id="modalOverlay" onclick="onOverlayClick(event)">
   <div class="modal-box" id="modalBox">
     <div class="modal-header">
       <div class="modal-type-badge" id="mBadge"></div>
@@ -841,7 +883,22 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
 
+// ===== Page Switch =====
+
+function switchAppPage(page) {
+  const isAuction = page === 'auction';
+  document.body.classList.toggle('auction-page', isAuction);
+  document.body.classList.toggle('calendar-page', !isAuction);
+  document.getElementById('btnCalendarPage').classList.toggle('active', !isAuction);
+  document.getElementById('btnAuctionPage').classList.toggle('active', isAuction);
+  window.location.hash = isAuction ? 'auction' : 'calendar';
+  if (isAuction) closeModal();
+}
+
 // ===== Init =====
+if (window.location.hash === '#auction') {
+  switchAppPage('auction');
+}
 render();
 </script>
 </body>
