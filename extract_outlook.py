@@ -12,6 +12,7 @@ import sys
 import json
 import re
 import os
+import time
 from datetime import datetime
 
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
@@ -20,6 +21,7 @@ sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 # ========== 依賴檢查 ==========
 try:
     import win32com.client
+    import pythoncom
 except ImportError:
     print("❌ 請先安裝 pywin32：pip install pywin32")
     sys.exit(1)
@@ -357,6 +359,38 @@ def load_existing_cb_events():
     return cb
 
 
+def connect_outlook(max_attempts=6, delay_seconds=10):
+    """Connect to Outlook COM with retries for scheduled-task startup races."""
+    last_error = None
+    print(f"🔌 連線 Outlook COM（最多 {max_attempts} 次，每次間隔 {delay_seconds} 秒）...")
+
+    for attempt in range(1, max_attempts + 1):
+        try:
+            pythoncom.CoInitialize()
+
+            try:
+                outlook = win32com.client.GetActiveObject("Outlook.Application")
+                source = "active instance"
+            except Exception:
+                outlook = win32com.client.Dispatch("Outlook.Application")
+                source = "new dispatch"
+
+            namespace = outlook.GetNamespace("MAPI")
+            _ = namespace.Folders.Count
+            print(f"✅ Outlook COM 連線成功（第 {attempt} 次，{source}）")
+            return outlook, namespace
+
+        except Exception as e:
+            last_error = e
+            print(f"  ⚠️  第 {attempt}/{max_attempts} 次連線 Outlook 失敗: {repr(e)}")
+            if attempt < max_attempts:
+                time.sleep(delay_seconds)
+
+    print(f"⚠️  無法連線 Outlook: {last_error!r}")
+    print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
+    return None, None
+
+
 def main():
     print("=" * 50)
     print("  CB行事曆資料提取器")
@@ -365,16 +399,9 @@ def main():
     print(f"郵件主旨:   {CONFIG['email_subject']}\n")
 
     # 連線 Outlook
-    outlook_ok = False
-    try:
-        outlook   = win32com.client.Dispatch("Outlook.Application")
-        namespace = outlook.GetNamespace("MAPI")
-        outlook_ok = True
-    except Exception as e:
-        print(f"⚠️  無法連線 Outlook: {e}")
-        print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
+    outlook, namespace = connect_outlook()
 
-    if not outlook_ok:
+    if namespace is None:
         events = load_existing_cb_events()
     else:
         # 尋找目標資料夾

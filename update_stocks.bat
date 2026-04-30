@@ -1,9 +1,13 @@
 @echo off
-setlocal
+setlocal EnableExtensions EnableDelayedExpansion
 chcp 65001 >nul
 set PYTHONIOENCODING=utf-8
+set GIT_TERMINAL_PROMPT=0
+set GCM_INTERACTIVE=never
 
 cd /d "%~dp0"
+
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='update_log.txt'; if (!(Test-Path $p)) { [IO.File]::WriteAllBytes($p,[byte[]](0xEF,0xBB,0xBF)) } else { $b=[IO.File]::ReadAllBytes($p); if ($b.Length -eq 0) { [IO.File]::WriteAllBytes($p,[byte[]](0xEF,0xBB,0xBF)) } elseif (!($b.Length -ge 3 -and $b[0] -eq 0xEF -and $b[1] -eq 0xBB -and $b[2] -eq 0xBF)) { [IO.File]::WriteAllBytes($p, [byte[]](0xEF,0xBB,0xBF) + $b) } }"
 
 echo [%date% %time%] Starting stock calendar update... >> update_log.txt
 python log_update_status.py STOCK START "scheduled update started" --counts --commit >> update_log.txt 2>&1
@@ -25,6 +29,20 @@ if errorlevel 1 (
 git add calendar.html events.json >> update_log.txt 2>&1
 git diff --cached --quiet
 if %errorlevel% == 0 (
+    set AHEAD=0
+    for /f %%A in ('git rev-list --count origin/main..HEAD 2^>nul') do set AHEAD=%%A
+    if not "!AHEAD!" == "0" (
+        echo [%date% %time%] No file changes, but !AHEAD! local commits pending push. >> update_log.txt
+        git push origin main >> update_log.txt 2>&1
+        if errorlevel 1 (
+            echo [%date% %time%] ERROR: pending git push failed. >> update_log.txt
+            python log_update_status.py STOCK ERROR "pending git push failed" --counts --commit >> update_log.txt 2>&1
+            exit /b 1
+        )
+        echo [%date% %time%] Pending local commits pushed. >> update_log.txt
+        python log_update_status.py STOCK SUCCESS "pushed pending local commit" --counts --commit >> update_log.txt 2>&1
+        exit /b 0
+    )
     echo [%date% %time%] No changes to commit. >> update_log.txt
     python log_update_status.py STOCK NO_CHANGE "no file changes after update" --counts --commit >> update_log.txt 2>&1
     exit /b 0
