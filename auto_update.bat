@@ -7,7 +7,7 @@ set GCM_INTERACTIVE=never
 
 cd /d "%~dp0"
 
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$p='update_log.txt'; if (!(Test-Path $p)) { [IO.File]::WriteAllBytes($p,[byte[]](0xEF,0xBB,0xBF)) } else { $b=[IO.File]::ReadAllBytes($p); if ($b.Length -eq 0) { [IO.File]::WriteAllBytes($p,[byte[]](0xEF,0xBB,0xBF)) } elseif (!($b.Length -ge 3 -and $b[0] -eq 0xEF -and $b[1] -eq 0xBB -and $b[2] -eq 0xBF)) { [IO.File]::WriteAllBytes($p, [byte[]](0xEF,0xBB,0xBF) + $b) } }"
+python ensure_utf8_log.py update_log.txt
 
 echo [%date% %time%] Starting CB calendar update... >> update_log.txt
 python log_update_status.py CB START "scheduled update started" --counts --commit >> update_log.txt 2>&1
