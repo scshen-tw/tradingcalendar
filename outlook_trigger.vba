@@ -74,13 +74,16 @@ Sub ExportLatestCbasMailCache()
         If msg.Class = olMail Then
             If InStr(msg.Subject, SUBJECT_KW) > 0 Then
                 SaveCbasMailCache msg
+                MsgBox "已匯出最新 CBAS 郵件：" & vbCrLf & msg.Subject, vbInformation
                 Exit Sub
             End If
         End If
     Next msg
 
+    MsgBox "找不到主旨含「" & SUBJECT_KW & "」的郵件。", vbExclamation
     Exit Sub
 ErrHandler:
+    MsgBox "匯出 CBAS 郵件失敗：" & Err.Description, vbExclamation
 End Sub
 
 ' ===== 新信件進來時觸發 =====
@@ -138,6 +141,7 @@ Sub WriteUtf8Text(ByVal filePath As String, ByVal text As String)
 
     Exit Sub
 ErrHandler:
+    MsgBox "寫入檔案失敗：" & filePath & vbCrLf & Err.Description, vbExclamation
 End Sub
 
 ' ===== 執行更新腳本 =====
