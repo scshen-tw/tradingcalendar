@@ -23,8 +23,8 @@ try:
     import win32com.client
     import pythoncom
 except ImportError:
-    print("❌ 請先安裝 pywin32：pip install pywin32")
-    sys.exit(1)
+    win32com = None
+    pythoncom = None
 
 try:
     from bs4 import BeautifulSoup
@@ -38,6 +38,7 @@ CONFIG = {
     'email_subject':   'cb案件整理表',   # 郵件主旨關鍵字
     'output_json':     'events.json',    # 輸出 JSON 檔案
     'output_html':     'calendar.html',  # 輸出行事曆 HTML
+    'prefer_graph':    True,             # 優先用 Microsoft Graph，失敗才退回 Outlook COM
 }
 
 # 欄位識別關鍵字（按優先順序）
@@ -361,6 +362,10 @@ def load_existing_cb_events():
 
 def connect_outlook(max_attempts=6, delay_seconds=10):
     """Connect to Outlook COM with retries for scheduled-task startup races."""
+    if win32com is None or pythoncom is None:
+        print("ℹ️  pywin32 未安裝，略過 Outlook COM fallback。")
+        return None, None
+
     last_error = None
     print(f"🔌 連線 Outlook COM（最多 {max_attempts} 次，每次間隔 {delay_seconds} 秒）...")
 
@@ -391,6 +396,117 @@ def connect_outlook(max_attempts=6, delay_seconds=10):
     return None, None
 
 
+def extract_events_from_graph():
+    if not CONFIG.get('prefer_graph'):
+        return None
+
+    try:
+        from graph_mail import fetch_latest_cbas_email
+    except ImportError as e:
+        print(f"ℹ️  Microsoft Graph 套件未就緒，略過 Graph: {e}")
+        return None
+
+    try:
+        print("☁️  嘗試用 Microsoft Graph 讀取 CBAS 郵件...")
+        email = fetch_latest_cbas_email()
+        if not email:
+            return None
+
+        try:
+            ref_year = email.ReceivedTime.year
+        except Exception:
+            ref_year = datetime.now().year
+
+        print(f"\n📊 解析 Graph 郵件表格資料 (參考年份: {ref_year})...")
+        events = extract_events_from_email(email, ref_year)
+        for e in events:
+            e['display'] = format_display(e)
+
+        print(f"\nCB 事件共 {len(events)} 筆:")
+        for e in sorted(events, key=lambda x: x['date']):
+            print(f"  {e['date']}  {e['display']}")
+        return events
+
+    except Exception as e:
+        print(f"⚠️  Microsoft Graph 讀取失敗: {e}")
+        print("   → 改用 Outlook COM；若仍失敗才沿用現有 CB 事件\n")
+        return None
+
+
+def extract_events_from_outlook_com():
+    # 連線 Outlook
+    outlook, namespace = connect_outlook()
+
+    if namespace is None:
+        return load_existing_cb_events()
+
+    # 尋找目標資料夾
+    print(f"🔍 搜尋「{CONFIG['outlook_folder']}」資料夾...")
+    folder = find_cbas_folder(namespace)
+    if not folder:
+        print(f"⚠️  找不到資料夾「{CONFIG['outlook_folder']}」")
+        print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
+        return load_existing_cb_events()
+
+    print(f"✅ 找到資料夾: {folder.Name}")
+
+    # 尋找最新符合主旨的郵件
+    print(f"🔍 搜尋主旨含「{CONFIG['email_subject']}」的郵件...")
+    items = folder.Items
+    items.Sort("[ReceivedTime]", True)
+
+    email = None
+    for msg in items:
+        try:
+            if CONFIG['email_subject'].lower() in (msg.Subject or '').lower():
+                email = msg
+                break
+        except Exception:
+            pass
+
+    if not email:
+        print(f"⚠️  找不到符合主旨的郵件")
+        print(f"\n📋 cbas 資料夾內所有郵件主旨（最新20封）：")
+        items2 = folder.Items
+        items2.Sort("[ReceivedTime]", True)
+        count = 0
+        for msg in items2:
+            try:
+                subj = msg.Subject or '（無主旨）'
+                recv = str(msg.ReceivedTime)[:10]
+                print(f"  [{recv}] {subj}")
+                count += 1
+                if count >= 20:
+                    break
+            except Exception:
+                pass
+        if count == 0:
+            print("  （資料夾是空的）")
+        print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
+        return load_existing_cb_events()
+
+    print(f"✅ 找到郵件: {email.Subject}")
+    print(f"   收信時間: {email.ReceivedTime}\n")
+
+    try:
+        ref_year = email.ReceivedTime.year
+    except Exception:
+        ref_year = datetime.now().year
+
+    # 提取表格
+    print(f"📊 解析表格資料 (參考年份: {ref_year})...")
+    events = extract_events_from_email(email, ref_year)
+
+    for e in events:
+        e['display'] = format_display(e)
+
+    print(f"\nCB 事件共 {len(events)} 筆:")
+    for e in sorted(events, key=lambda x: x['date']):
+        print(f"  {e['date']}  {e['display']}")
+
+    return events
+
+
 def main():
     print("=" * 50)
     print("  CB行事曆資料提取器")
@@ -398,75 +514,9 @@ def main():
     print(f"目標資料夾: {CONFIG['outlook_folder']}")
     print(f"郵件主旨:   {CONFIG['email_subject']}\n")
 
-    # 連線 Outlook
-    outlook, namespace = connect_outlook()
-
-    if namespace is None:
-        events = load_existing_cb_events()
-    else:
-        # 尋找目標資料夾
-        print(f"🔍 搜尋「{CONFIG['outlook_folder']}」資料夾...")
-        folder = find_cbas_folder(namespace)
-        if not folder:
-            print(f"⚠️  找不到資料夾「{CONFIG['outlook_folder']}」")
-            print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
-            events = load_existing_cb_events()
-        else:
-            print(f"✅ 找到資料夾: {folder.Name}")
-
-            # 尋找最新符合主旨的郵件
-            print(f"🔍 搜尋主旨含「{CONFIG['email_subject']}」的郵件...")
-            items = folder.Items
-            items.Sort("[ReceivedTime]", True)
-
-            email = None
-            for msg in items:
-                try:
-                    if CONFIG['email_subject'].lower() in (msg.Subject or '').lower():
-                        email = msg
-                        break
-                except Exception:
-                    pass
-
-            if not email:
-                print(f"⚠️  找不到符合主旨的郵件")
-                print(f"\n📋 cbas 資料夾內所有郵件主旨（最新20封）：")
-                items2 = folder.Items
-                items2.Sort("[ReceivedTime]", True)
-                count = 0
-                for msg in items2:
-                    try:
-                        subj = msg.Subject or '（無主旨）'
-                        recv = str(msg.ReceivedTime)[:10]
-                        print(f"  [{recv}] {subj}")
-                        count += 1
-                        if count >= 20:
-                            break
-                    except Exception:
-                        pass
-                if count == 0:
-                    print("  （資料夾是空的）")
-                print("   → 改為只更新股票競拍資料，CB 事件沿用現有資料\n")
-                events = load_existing_cb_events()
-            else:
-                print(f"✅ 找到郵件: {email.Subject}")
-                print(f"   收信時間: {email.ReceivedTime}\n")
-
-                try:
-                    ref_year = email.ReceivedTime.year
-                except Exception:
-                    ref_year = datetime.now().year
-
-                # 提取表格
-                print(f"📊 解析表格資料 (參考年份: {ref_year})...")
-                events = extract_events_from_email(email, ref_year)
-
-                for e in events:
-                    e['display'] = format_display(e)
-
-                print(f"\nCB 事件共 {len(events)} 筆:")
-                for e in sorted(events, key=lambda x: x['date']):
-                    print(f"  {e['date']}  {e['display']}")
+    events = extract_events_from_graph()
+    if events is None:
+        events = extract_events_from_outlook_com()
 
     # 合併股票競拍事件
     print(f"\n📈 讀取股票競拍資料...")

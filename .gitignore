@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 update_log.txt
 update_status.log
+graph_token_cache.bin
+graph_config.bat

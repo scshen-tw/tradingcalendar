@@ -8,6 +8,7 @@ set GCM_INTERACTIVE=never
 cd /d "%~dp0"
 
 python ensure_utf8_log.py update_log.txt
+if exist graph_config.bat call graph_config.bat
 
 echo [%date% %time%] Starting CB calendar update... >> update_log.txt
 python log_update_status.py CB START "scheduled update started" --counts --commit >> update_log.txt 2>&1
