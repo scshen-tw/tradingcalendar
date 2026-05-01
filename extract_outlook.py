@@ -38,7 +38,9 @@ CONFIG = {
     'email_subject':   'cb案件整理表',   # 郵件主旨關鍵字
     'output_json':     'events.json',    # 輸出 JSON 檔案
     'output_html':     'calendar.html',  # 輸出行事曆 HTML
-    'prefer_graph':    True,             # 優先用 Microsoft Graph，失敗才退回 Outlook COM
+    'prefer_graph':    False,            # Microsoft Graph 需 Azure app，預設關閉
+    'cached_email_html': 'cbas_latest_email.html',
+    'cached_email_meta': 'cbas_latest_email_meta.txt',
 }
 
 # 欄位識別關鍵字（按優先順序）
@@ -360,6 +362,70 @@ def load_existing_cb_events():
     return cb
 
 
+class CachedEmail:
+    def __init__(self, subject, html_body, received_time):
+        self.Subject = subject
+        self.HTMLBody = html_body
+        self.ReceivedTime = received_time
+
+
+def parse_cached_received_time(raw):
+    raw = (raw or '').strip()
+    if not raw:
+        return datetime.now()
+    for fmt in ('%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%Y-%m-%dT%H:%M:%S'):
+        try:
+            return datetime.strptime(raw[:19], fmt)
+        except ValueError:
+            pass
+    return datetime.now()
+
+
+def extract_events_from_cached_email():
+    """Read the latest HTML exported by Outlook VBA, if available."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    html_path = os.path.join(script_dir, CONFIG['cached_email_html'])
+    meta_path = os.path.join(script_dir, CONFIG['cached_email_meta'])
+
+    if not os.path.exists(html_path):
+        print(f"ℹ️  尚無本機信件快取: {html_path}")
+        return None
+
+    with open(html_path, encoding='utf-8') as f:
+        html_body = f.read()
+
+    subject = '(本機快取郵件)'
+    received_time = datetime.now()
+    if os.path.exists(meta_path):
+        with open(meta_path, encoding='utf-8') as f:
+            lines = [line.rstrip('\n') for line in f]
+        if lines:
+            subject = lines[0] or subject
+        if len(lines) >= 2:
+            received_time = parse_cached_received_time(lines[1])
+
+    if CONFIG['email_subject'].lower() not in subject.lower():
+        print(f"⚠️  本機快取郵件主旨不符: {subject}")
+        return None
+
+    print("📄 使用 Outlook VBA 匯出的本機信件 HTML 快取")
+    print(f"✅ 快取郵件: {subject}")
+    print(f"   快取收信時間: {received_time}\n")
+
+    email = CachedEmail(subject, html_body, received_time)
+    ref_year = received_time.year
+    print(f"📊 解析本機快取表格資料 (參考年份: {ref_year})...")
+    events = extract_events_from_email(email, ref_year)
+
+    for e in events:
+        e['display'] = format_display(e)
+
+    print(f"\nCB 事件共 {len(events)} 筆:")
+    for e in sorted(events, key=lambda x: x['date']):
+        print(f"  {e['date']}  {e['display']}")
+    return events
+
+
 def connect_outlook(max_attempts=6, delay_seconds=10):
     """Connect to Outlook COM with retries for scheduled-task startup races."""
     if win32com is None or pythoncom is None:
@@ -514,7 +580,9 @@ def main():
     print(f"目標資料夾: {CONFIG['outlook_folder']}")
     print(f"郵件主旨:   {CONFIG['email_subject']}\n")
 
-    events = extract_events_from_graph()
+    events = extract_events_from_cached_email()
+    if events is None:
+        events = extract_events_from_graph()
     if events is None:
         events = extract_events_from_outlook_com()
 

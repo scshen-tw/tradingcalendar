@@ -17,6 +17,8 @@ Private cbas_Items As Outlook.Items
 Const TARGET_FOLDER  As String = "cbas"
 Const SUBJECT_KW     As String = "cb案件整理表"
 Const CALENDAR_DIR   As String = "D:\VS Code\TradingCalendar"   ' ← 修改為你的路徑
+Const CACHE_HTML     As String = "cbas_latest_email.html"
+Const CACHE_META     As String = "cbas_latest_email_meta.txt"
 Const COOLDOWN_SECS  As Integer = 30   ' 同一封信觸發後，冷卻秒數（避免重複執行）
 
 ' ===== 內部變數 =====
@@ -52,6 +54,35 @@ ErrHandler:
     ' 靜默處理，不影響 Outlook 正常使用
 End Sub
 
+' ===== 手動匯出最新一封符合主旨的 CBAS 郵件 =====
+Sub ExportLatestCbasMailCache()
+    On Error GoTo ErrHandler
+
+    Dim ns As Outlook.NameSpace
+    Set ns = Application.GetNamespace("MAPI")
+
+    Dim folder As Outlook.MAPIFolder
+    Set folder = FindFolder(ns.Folders, TARGET_FOLDER)
+    If folder Is Nothing Then Exit Sub
+
+    Dim items As Outlook.Items
+    Set items = folder.Items
+    items.Sort "[ReceivedTime]", True
+
+    Dim msg As Object
+    For Each msg In items
+        If msg.Class = olMail Then
+            If InStr(msg.Subject, SUBJECT_KW) > 0 Then
+                SaveCbasMailCache msg
+                Exit Sub
+            End If
+        End If
+    Next msg
+
+    Exit Sub
+ErrHandler:
+End Sub
+
 ' ===== 新信件進來時觸發 =====
 Private Sub cbas_Items_ItemAdd(ByVal Item As Object)
     On Error GoTo ErrHandler
@@ -66,8 +97,44 @@ Private Sub cbas_Items_ItemAdd(ByVal Item As Object)
     If DateDiff("s", lastRunTime, Now) < COOLDOWN_SECS Then Exit Sub
     lastRunTime = Now
 
+    ' 先把信件 HTML 匯出到本機，排程更新時可直接讀檔，不必再連 Outlook COM
+    SaveCbasMailCache Item
+
     ' 延遲 3 秒再執行（讓 Outlook 完成信件處理）
     Application.OnTime Now + TimeValue("00:00:03"), "RunCalendarUpdate"
+
+    Exit Sub
+ErrHandler:
+End Sub
+
+' ===== 匯出最新 CBAS 郵件 HTML =====
+Sub SaveCbasMailCache(ByVal mail As Outlook.MailItem)
+    On Error GoTo ErrHandler
+
+    Dim htmlPath As String
+    Dim metaPath As String
+    htmlPath = CALENDAR_DIR & "\" & CACHE_HTML
+    metaPath = CALENDAR_DIR & "\" & CACHE_META
+
+    WriteUtf8Text htmlPath, mail.HTMLBody
+    WriteUtf8Text metaPath, mail.Subject & vbCrLf & Format(mail.ReceivedTime, "yyyy-mm-dd hh:nn:ss")
+
+    Exit Sub
+ErrHandler:
+End Sub
+
+' ===== 用 UTF-8 寫文字檔 =====
+Sub WriteUtf8Text(ByVal filePath As String, ByVal text As String)
+    On Error GoTo ErrHandler
+
+    Dim stream As Object
+    Set stream = CreateObject("ADODB.Stream")
+    stream.Type = 2
+    stream.Charset = "utf-8"
+    stream.Open
+    stream.WriteText text
+    stream.SaveToFile filePath, 2
+    stream.Close
 
     Exit Sub
 ErrHandler:
