@@ -72,7 +72,7 @@ Sub ExportLatestCbasMailCache()
     Dim msg As Object
     For Each msg In items
         If msg.Class = olMail Then
-            If InStr(msg.Subject, SUBJECT_KW) > 0 Then
+            If InStr(1, msg.Subject, SUBJECT_KW, vbTextCompare) > 0 Then
                 SaveCbasMailCache msg
                 MsgBox "已匯出最新 CBAS 郵件：" & vbCrLf & msg.Subject, vbInformation
                 Exit Sub
@@ -94,7 +94,7 @@ Private Sub cbas_Items_ItemAdd(ByVal Item As Object)
     If Item.Class <> olMail Then Exit Sub
 
     ' 確認主旨
-    If InStr(Item.Subject, SUBJECT_KW) = 0 Then Exit Sub
+    If InStr(1, Item.Subject, SUBJECT_KW, vbTextCompare) = 0 Then Exit Sub
 
     ' 冷卻檢查（避免同批多封信重複執行）
     If DateDiff("s", lastRunTime, Now) < COOLDOWN_SECS Then Exit Sub
