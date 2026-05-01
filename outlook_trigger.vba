@@ -10,8 +10,8 @@
 '   6. 重新啟動 Outlook（第一次需要允許執行巨集）
 ' ============================================================
 
-Private WithEvents cbas_Folder As Outlook.MAPIFolder
-Private cbas_Items As Outlook.Items
+Private cbas_Folder As Outlook.MAPIFolder
+Private WithEvents cbas_Items As Outlook.Items
 
 ' ===== 設定區 =====
 Const TARGET_FOLDER  As String = "cbas"
