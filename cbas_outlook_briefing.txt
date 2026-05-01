@@ -1,148 +1,163 @@
 ========================================================
-  TradingCalendar 專案 — Outlook cbas 自動更新說明
-  (給新 Claude 視窗的完整 context)
+  TradingCalendar 專案 — 目前運作說明
+  最後整理：2026-05-01
 ========================================================
 
-【專案位置】
-  本機：d:\VS Code\TradingCalendar\
-  GitHub：https://github.com/scshen-tw/tradingcalendar
-  GitHub Pages：https://scshen-tw.github.io/tradingcalendar/calendar.html
+本專案會產生：
+  - events.json
+  - calendar.html
 
-【專案目的】
-  自動從 Outlook 郵件擷取 CB（可轉債）競拍資料，
-  並合併本機股票競拍 JSON，產生互動式行事曆 HTML，
-  推送至 GitHub Pages 供瀏覽器直接開啟。
+資料來源分成兩塊：
+  1. CB 可轉債：Outlook cbas 資料夾中的「cb案件整理表」郵件
+  2. 股票競拍：D:\VS Code\Auction\auction_stocks.json
 
 ========================================================
-  一、資料來源
+  一、CB 郵件目前的自動化方式
 ========================================================
 
-1. CB 資料（可轉債）
-   來源：Outlook 資料夾「cbas」中，主旨含「cb案件整理表」的最新一封郵件
-   格式：郵件內嵌 HTML 表格
-   欄位：承銷方式 / CB代碼 / 發行標的 / TCRI / 掛牌日 / 競拍截止 / 發行金額 / 轉換價
+目前不再使用 Microsoft Graph / Azure App。
 
-2. 股票競拍資料
-   來源：d:\VS Code\Auction\auction_stocks.json（另一個專案 auction-viewer 產生）
-   GitHub raw URL（GitHub Actions 環境用）：
-     https://raw.githubusercontent.com/scshen-tw/auction-viewer/main/auction_stocks.json
-   欄位：證券代號 / 證券名稱 / 投標結束日 / 撥券日期 / 實際承銷價格 / 取消競價拍賣
+主要流程是：
+  1. Outlook 裡安裝 outlook_trigger.vba 到 ThisOutlookSession
+  2. Outlook 開啟時執行 InitCbasWatcher
+  3. 巨集監看 Outlook 資料夾 cbas
+  4. 新郵件進來且主旨包含「cb案件整理表」時，自動匯出：
+       cbas_latest_email.html
+       cbas_latest_email_meta.txt
+  5. 巨集背景執行 auto_update.bat
+  6. extract_outlook.py 優先讀取本機快取 HTML 解析表格
+  7. 若快取不存在或主旨不符，才 fallback 到 Outlook COM
+  8. 若 Outlook COM 也失敗，保留 events.json 既有 CB 事件，只更新股票
 
-========================================================
-  二、輸出格式
-========================================================
-
-events.json — 所有行事曆事件的陣列，每筆格式：
-  {
-    "date":       "YYYY-MM-DD",
-    "type":       "CB競拍截止" | "CB競拍掛牌" | "CB詢圈掛牌" | "股票競拍截止" | "股票競拍掛牌",
-    "code":       "債券或股票代號",
-    "name":       "名稱",
-    "tcri":       "tcri5" | "有擔" | ""  (CB才有，股票留空),
-    "amount":     "10.00E"              (CB才有，股票留空),
-    "conv_price": "485"                 (CB轉換價 / 股票承銷價，未定留空),
-    "display":    "行事曆顯示文字"
-  }
-
-calendar.html — 靜態單頁行事曆，EVENTS_DATA 直接嵌入在 JS 裡：
-  // __EVENTS_START__
-  const EVENTS_DATA = [...];
-  // __EVENTS_END__
+注意：
+  - 主旨只比對「cb案件整理表」
+  - 後面的日期，例如 0430 / 0501，不是寫死的
+  - 自動新信觸發不會跳成功提示窗
+  - 手動執行 ExportLatestCbasMailCache 才會跳提示窗
 
 ========================================================
-  三、程式檔案說明
+  二、股票競拍資料
 ========================================================
 
-extract_outlook.py（主程式）
-  - 連線 Outlook COM，搜尋 cbas 資料夾
-  - 找到最新一封主旨含「cb案件整理表」的郵件
-  - 解析郵件 HTML 表格（支援 rowspan/colspan）
-  - 辨識欄位（COLUMN_PATTERNS 模糊比對，容錯多種表頭格式）
-  - 判斷承銷方式（競拍 → 截止+掛牌 兩筆; 詢圈 → 只有掛牌）
-  - Outlook 失敗時 fallback：讀現有 events.json 保留 CB，只更新股票
-  - 最後呼叫 extract_stocks.extract_stock_events() 合併股票事件
+來源：
+  D:\VS Code\Auction\auction_stocks.json
+
+GitHub Actions / 非本機環境 fallback：
+  https://raw.githubusercontent.com/scshen-tw/auction-viewer/main/auction_stocks.json
+
+處理邏輯：
+  - 跳過「取消競價拍賣」有值的資料
+  - 只保留投標結束日 >= 今天 - 14 天
+  - 每筆股票產生：
+      股票競拍截止
+      股票競拍掛牌（有撥券日期才產生）
+
+========================================================
+  三、主要檔案
+========================================================
+
+outlook_trigger.vba
+  - Outlook 巨集
+  - 監看 cbas 資料夾
+  - 匯出 cbas_latest_email.html / cbas_latest_email_meta.txt
+  - 新信進來後背景執行 auto_update.bat
+
+extract_outlook.py
+  - CB 主程式
+  - 優先讀 Outlook VBA 匯出的本機 HTML 快取
+  - fallback 到 Outlook COM
+  - 最後合併股票事件
   - 輸出 events.json 與 calendar.html
 
-extract_stocks.py（股票競拍擷取模組）
-  - 優先讀本機 auction_stocks.json
-  - 本機檔不存在時改從 GitHub raw URL 下載（供 GitHub Actions 使用）
-  - 篩選：截止日 >= 今天 - 14天
-  - 跳過已取消競拍（「取消競價拍賣」欄位有值）
-  - 每筆產生兩個事件：股票競拍截止 + 股票競拍掛牌（有掛牌日才加）
+extract_stocks.py
+  - 股票競拍擷取模組
 
-update_stocks.py（獨立股票更新器）
-  - 不需要 Outlook，只更新股票部分
-  - 讀現有 events.json 保留所有 CB 事件
-  - 重新呼叫 extract_stocks.extract_stock_events()
-  - 合併後寫回 events.json 與 calendar.html
+update_stocks.py
+  - 只更新股票事件，不需要 Outlook
 
-auto_update.bat（本機 CB 完整更新）
-  - 執行 extract_outlook.py（需要 Outlook 開啟且有新郵件）
-  - 成功後 git add / commit / push
+auto_update.bat
+  - 本機完整更新
+  - 執行 extract_outlook.py
+  - git pull --rebase --autostash
+  - 有變更就 commit / push
+  - 使用 SSH key 避免排程卡在互動式登入
 
-update_stocks.bat（本機股票獨立更新）
-  - 執行 update_stocks.py（不需要 Outlook）
-  - 成功後 git add / commit / push
+update_stocks.bat
+  - 只更新股票
+  - git pull / commit / push
 
-.github/workflows/update.yml（GitHub Actions 自動排程）
-  - 每天 UTC 01:00（台灣時間 09:00）自動執行
-  - 可手動觸發（workflow_dispatch）
-  - 執行 update_stocks.py（從 GitHub 下載 auction_stocks.json）
-  - 有變更才 commit，避免空 commit
+export_cbas_cache.py
+  - 手動備援工具
+  - Outlook 開啟時可直接匯出最新符合主旨的 CBAS 郵件快取
 
-========================================================
-  四、COLUMN_PATTERNS 欄位比對關鍵字
-========================================================
+ensure_utf8_log.py
+  - 確保 log 是 UTF-8，避免中文亂碼
 
-  承銷方式：  承銷方式、方式、銷售方式
-  CB代碼：    CB代碼、代號、債代、標的代號、編號、債券代號
-  名稱：      發行標的、名稱、債名、標的名稱、公司名、債券名稱
-  TCRI：      tcri、TCRI、評等、TCRI評等、信評
-  掛牌日：    掛牌日、掛牌、上市日、掛牌日期
-  競拍截止：  競拍期間、詢圈期間、競拍截止、拍止、截止日、競拍日、投標截止
-  發行金額：  發行金額、金額、總額、發行規模
-  轉換價：    轉換價、轉換價格、換股價、轉換
-
-  （如郵件表格欄位名稱改變，在此處新增關鍵字即可）
+log_update_status.py
+  - 寫 update_status.log，方便查排程結果
 
 ========================================================
-  五、事件顏色對照
+  四、不要刪的本機運作檔
 ========================================================
 
-  CB競拍截止   → 紅色  #EF4444
-  CB競拍掛牌   → 藍色  #2563EB
-  CB詢圈掛牌   → 紫色  #7C3AED
-  股票競拍截止 → 綠色  #16A34A
-  股票競拍掛牌 → 青色  #0D9488
+以下檔案不進 git，但屬於本機運作狀態：
+  cbas_latest_email.html
+  cbas_latest_email_meta.txt
+  update_log.txt
+  update_status.log
+
+其中 cbas_latest_email.html / cbas_latest_email_meta.txt
+是 Python 排程取得 Outlook 表格的關鍵快取，不是測試垃圾檔。
 
 ========================================================
-  六、常見問題與處理方式
+  五、Git / Push
 ========================================================
 
-Q: Outlook 連不上或找不到 cbas 資料夾？
-A: extract_outlook.py 會 fallback 讀現有 events.json 的 CB 事件，
-   只更新股票部分，不會中斷整個流程。
+TradingCalendar remote：
+  git@github.com:scshen-tw/tradingcalendar.git
 
-Q: 郵件表格欄位名稱對不上？
-A: 執行時會印出「全部欄位標題」與對應結果，
-   在 COLUMN_PATTERNS 補上新的關鍵字即可。
+使用 SSH key：
+  C:\Users\User\.ssh\id_ed25519_tradingcalendar
 
-Q: 新股票沒更新到 calendar.html？
-A: auction_stocks.json 更新後，執行 update_stocks.bat 即可；
-   或等 GitHub Actions 當天 09:00 自動跑。
+auto_update.bat / update_stocks.bat 會設定：
+  GIT_TERMINAL_PROMPT=0
+  GCM_INTERACTIVE=never
+  GIT_SSH_COMMAND=ssh -i C:/Users/User/.ssh/id_ed25519_tradingcalendar ...
 
-Q: 手動觸發 GitHub Actions？
-A: 進 https://github.com/scshen-tw/tradingcalendar/actions
-   點「每日更新股票競拍行事曆」→「Run workflow」
+這是為了解決排程 git push 不能跳互動式登入的問題。
+
+Auction 專案也已改成 SSH push：
+  repo: D:\VS Code\Auction
+  remote: git@github.com:scshen-tw/auction-viewer.git
+  key: C:\Users\User\.ssh\id_ed25519_auction_viewer
 
 ========================================================
-  七、依賴套件
+  六、手動指令
 ========================================================
 
-  本機執行需要：
-    pip install pywin32 beautifulsoup4 lxml
+手動匯出最新 CBAS 郵件快取：
+  python export_cbas_cache.py
 
-  GitHub Actions 只跑 update_stocks.py，
-  僅使用 Python 標準庫，不需要額外安裝套件。
+手動完整更新：
+  .\auto_update.bat
+
+只更新股票：
+  .\update_stocks.bat
+
+========================================================
+  七、常見問題
+========================================================
+
+Q: 電腦可以鎖定嗎？
+A: 可以。但 Outlook 必須開著，巨集也要能執行。不要在排程附近登出、切換使用者或關閉 Outlook。
+
+Q: 每天都會跳 Outlook 成功提示窗嗎？
+A: 不會。自動新信觸發是靜默執行。只有手動執行 ExportLatestCbasMailCache 才會跳提示窗。
+
+Q: Outlook 沒抓到怎麼辦？
+A: 先看 cbas_latest_email_meta.txt 是否是最新主旨與時間。若不是，開 Outlook 後手動執行 ExportLatestCbasMailCache 或 python export_cbas_cache.py。
+
+Q: GitHub Actions 會更新 CB 嗎？
+A: 不會。GitHub Actions 只更新股票，因為雲端無法讀本機 Outlook。
 
 ========================================================

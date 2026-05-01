@@ -38,7 +38,6 @@ CONFIG = {
     'email_subject':   'cb案件整理表',   # 郵件主旨關鍵字
     'output_json':     'events.json',    # 輸出 JSON 檔案
     'output_html':     'calendar.html',  # 輸出行事曆 HTML
-    'prefer_graph':    False,            # Microsoft Graph 需 Azure app，預設關閉
     'cached_email_html': 'cbas_latest_email.html',
     'cached_email_meta': 'cbas_latest_email_meta.txt',
 }
@@ -462,43 +461,6 @@ def connect_outlook(max_attempts=6, delay_seconds=10):
     return None, None
 
 
-def extract_events_from_graph():
-    if not CONFIG.get('prefer_graph'):
-        return None
-
-    try:
-        from graph_mail import fetch_latest_cbas_email
-    except ImportError as e:
-        print(f"ℹ️  Microsoft Graph 套件未就緒，略過 Graph: {e}")
-        return None
-
-    try:
-        print("☁️  嘗試用 Microsoft Graph 讀取 CBAS 郵件...")
-        email = fetch_latest_cbas_email()
-        if not email:
-            return None
-
-        try:
-            ref_year = email.ReceivedTime.year
-        except Exception:
-            ref_year = datetime.now().year
-
-        print(f"\n📊 解析 Graph 郵件表格資料 (參考年份: {ref_year})...")
-        events = extract_events_from_email(email, ref_year)
-        for e in events:
-            e['display'] = format_display(e)
-
-        print(f"\nCB 事件共 {len(events)} 筆:")
-        for e in sorted(events, key=lambda x: x['date']):
-            print(f"  {e['date']}  {e['display']}")
-        return events
-
-    except Exception as e:
-        print(f"⚠️  Microsoft Graph 讀取失敗: {e}")
-        print("   → 改用 Outlook COM；若仍失敗才沿用現有 CB 事件\n")
-        return None
-
-
 def extract_events_from_outlook_com():
     # 連線 Outlook
     outlook, namespace = connect_outlook()
@@ -581,8 +543,6 @@ def main():
     print(f"郵件主旨:   {CONFIG['email_subject']}\n")
 
     events = extract_events_from_cached_email()
-    if events is None:
-        events = extract_events_from_graph()
     if events is None:
         events = extract_events_from_outlook_com()
 

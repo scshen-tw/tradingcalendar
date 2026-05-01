@@ -8,7 +8,6 @@ set GCM_INTERACTIVE=never
 cd /d "%~dp0"
 
 python ensure_utf8_log.py update_log.txt
-if exist graph_config.bat call graph_config.bat
 if exist "C:\Users\User\.ssh\id_ed25519_tradingcalendar" set "GIT_SSH_COMMAND=ssh -i C:/Users/User/.ssh/id_ed25519_tradingcalendar -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
 
 echo [%date% %time%] Starting CB calendar update... >> update_log.txt
