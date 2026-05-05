@@ -210,6 +210,26 @@
     "display": "CB競拍掛牌 36806 家登六 tcri5 15.00E 轉:483"
   },
   {
+    "date": "2026-05-08",
+    "type": "CB競拍截止",
+    "code": "68032",
+    "name": "崑鼎二",
+    "tcri": "tcri3",
+    "amount": "20.00E",
+    "conv_price": "324",
+    "display": "CB競拍截止 68032 崑鼎二 tcri3 20.00E 轉:324"
+  },
+  {
+    "date": "2026-05-21",
+    "type": "CB競拍掛牌",
+    "code": "68032",
+    "name": "崑鼎二",
+    "tcri": "tcri3",
+    "amount": "20.00E",
+    "conv_price": "324",
+    "display": "CB競拍掛牌 68032 崑鼎二 tcri3 20.00E 轉:324"
+  },
+  {
     "date": "2026-04-22",
     "type": "股票競拍截止",
     "code": "3485",
