@@ -368,5 +368,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 7803 雲象科技"
+  },
+  {
+    "date": "2026-05-11",
+    "type": "股票競拍截止",
+    "code": "4582",
+    "name": "聚恆",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 4582 聚恆"
+  },
+  {
+    "date": "2026-05-22",
+    "type": "股票競拍掛牌",
+    "code": "4582",
+    "name": "聚恆",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 4582 聚恆"
   }
 ]
