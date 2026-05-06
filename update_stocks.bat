@@ -8,6 +8,7 @@ set GCM_INTERACTIVE=never
 cd /d "%~dp0"
 
 python ensure_utf8_log.py update_log.txt
+if exist "C:\Users\User\.ssh\id_ed25519_tradingcalendar" set "GIT_SSH_COMMAND=ssh -i C:/Users/User/.ssh/id_ed25519_tradingcalendar -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
 
 echo [%date% %time%] Starting stock calendar update... >> update_log.txt
 python log_update_status.py STOCK START "scheduled update started" --counts --commit >> update_log.txt 2>&1
