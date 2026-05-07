@@ -1,15 +1,5 @@
 [
   {
-    "date": "2026-04-28",
-    "type": "CB詢圈掛牌",
-    "code": "81114",
-    "name": "立碁四",
-    "tcri": "tcri6",
-    "amount": "5.00E",
-    "conv_price": "75.1",
-    "display": "CB詢圈掛牌 81114 立碁四 tcri6 5.00E 轉:75.1"
-  },
-  {
     "date": "2026-05-04",
     "type": "CB詢圈掛牌",
     "code": "66034",
@@ -228,6 +218,46 @@
     "amount": "20.00E",
     "conv_price": "324",
     "display": "CB競拍掛牌 68032 崑鼎二 tcri3 20.00E 轉:324"
+  },
+  {
+    "date": "2026-05-12",
+    "type": "CB競拍截止",
+    "code": "54642",
+    "name": "霖宏二",
+    "tcri": "有擔",
+    "amount": "2.90E",
+    "conv_price": "33.4",
+    "display": "CB競拍截止 54642 霖宏二 有擔 2.90E 轉:33.4"
+  },
+  {
+    "date": "2026-05-25",
+    "type": "CB競拍掛牌",
+    "code": "54642",
+    "name": "霖宏二",
+    "tcri": "有擔",
+    "amount": "2.90E",
+    "conv_price": "33.4",
+    "display": "CB競拍掛牌 54642 霖宏二 有擔 2.90E 轉:33.4"
+  },
+  {
+    "date": "2026-06-23",
+    "type": "CB競拍掛牌",
+    "code": "66831",
+    "name": "雍智科技一",
+    "tcri": "tcri5",
+    "amount": "15E",
+    "conv_price": "2.76",
+    "display": "CB競拍掛牌 66831 雍智科技一 tcri5 15E 轉:2.76"
+  },
+  {
+    "date": "2026-01-17",
+    "type": "CB詢圈掛牌",
+    "code": "66931",
+    "name": "廣閎科一",
+    "tcri": "tcri6",
+    "amount": "5E",
+    "conv_price": "4.57",
+    "display": "CB詢圈掛牌 66931 廣閎科一 tcri6 5E 轉:4.57"
   },
   {
     "date": "2026-04-23",
