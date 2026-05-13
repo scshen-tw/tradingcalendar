@@ -20,6 +20,11 @@ if errorlevel 1 (
     exit /b 1
 )
 
+python export_cbas_cache.py >> update_log.txt 2>&1
+if errorlevel 1 (
+    echo [%date% %time%] WARNING: export_cbas_cache.py failed; using existing cache or fallback. >> update_log.txt
+)
+
 python extract_outlook.py >> update_log.txt 2>&1
 if errorlevel 1 (
     echo [%date% %time%] ERROR: extract_outlook.py failed. >> update_log.txt
