@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-05-04",
-    "type": "CB詢圈掛牌",
-    "code": "66034",
-    "name": "富強鑫四",
-    "tcri": "tcri6",
-    "amount": "4.00E",
-    "conv_price": "26.63",
-    "display": "CB詢圈掛牌 66034 富強鑫四 tcri6 4.00E 轉:26.63"
-  },
-  {
-    "date": "2026-04-20",
-    "type": "CB競拍截止",
-    "code": "47148",
-    "name": "永捷八",
-    "tcri": "有擔",
-    "amount": "3.00E",
-    "conv_price": "16.1",
-    "display": "CB競拍截止 47148 永捷八 有擔 3.00E 轉:16.1"
-  },
-  {
-    "date": "2026-05-04",
-    "type": "CB競拍掛牌",
-    "code": "47148",
-    "name": "永捷八",
-    "tcri": "有擔",
-    "amount": "3.00E",
-    "conv_price": "16.1",
-    "display": "CB競拍掛牌 47148 永捷八 有擔 3.00E 轉:16.1"
-  },
-  {
-    "date": "2026-05-04",
-    "type": "CB詢圈掛牌",
-    "code": "41238",
-    "name": "晟德八",
-    "tcri": "tcri6",
-    "amount": "15.00E",
-    "conv_price": "43",
-    "display": "CB詢圈掛牌 41238 晟德八 tcri6 15.00E 轉:43"
-  },
-  {
     "date": "2026-04-21",
     "type": "CB競拍截止",
     "code": "82711",
@@ -240,6 +200,56 @@
     "display": "CB競拍掛牌 54642 霖宏二 有擔 2.90E 轉:33.4"
   },
   {
+    "date": "2026-05-14",
+    "type": "CB競拍截止",
+    "code": "47491",
+    "name": "新應材一",
+    "tcri": "tcri5",
+    "amount": "20.00E",
+    "conv_price": "1072",
+    "display": "CB競拍截止 47491 新應材一 tcri5 20.00E 轉:1072"
+  },
+  {
+    "date": "2026-05-27",
+    "type": "CB競拍掛牌",
+    "code": "47491",
+    "name": "新應材一",
+    "tcri": "tcri5",
+    "amount": "20.00E",
+    "conv_price": "1072",
+    "display": "CB競拍掛牌 47491 新應材一 tcri5 20.00E 轉:1072"
+  },
+  {
+    "date": "2026-05-18",
+    "type": "CB競拍截止",
+    "code": "49311",
+    "name": "新盛力一",
+    "tcri": "tcri5",
+    "amount": "7.00E",
+    "conv_price": "175",
+    "display": "CB競拍截止 49311 新盛力一 tcri5 7.00E 轉:175"
+  },
+  {
+    "date": "2026-05-29",
+    "type": "CB競拍掛牌",
+    "code": "49311",
+    "name": "新盛力一",
+    "tcri": "tcri5",
+    "amount": "7.00E",
+    "conv_price": "175",
+    "display": "CB競拍掛牌 49311 新盛力一 tcri5 7.00E 轉:175"
+  },
+  {
+    "date": "2026-01-03",
+    "type": "CB競拍掛牌",
+    "code": "47642",
+    "name": "雙鍵二",
+    "tcri": "有擔",
+    "amount": "5E",
+    "conv_price": "8.55",
+    "display": "CB競拍掛牌 47642 雙鍵二 有擔 5E 轉:8.55"
+  },
+  {
     "date": "2026-06-23",
     "type": "CB競拍掛牌",
     "code": "66831",
@@ -258,6 +268,26 @@
     "amount": "5E",
     "conv_price": "4.57",
     "display": "CB詢圈掛牌 66931 廣閎科一 tcri6 5E 轉:4.57"
+  },
+  {
+    "date": "2026-04-14",
+    "type": "CB詢圈掛牌",
+    "code": "35833",
+    "name": "辛耘三",
+    "tcri": "tcri4",
+    "amount": "30E",
+    "conv_price": "8.03",
+    "display": "CB詢圈掛牌 35833 辛耘三 tcri4 30E 轉:8.03"
+  },
+  {
+    "date": "2026-04-14",
+    "type": "CB競拍掛牌",
+    "code": "35834",
+    "name": "辛耘四",
+    "tcri": "tcri4",
+    "amount": "30E",
+    "conv_price": "8.03",
+    "display": "CB競拍掛牌 35834 辛耘四 tcri4 30E 轉:8.03"
   },
   {
     "date": "2026-05-05",
@@ -286,7 +316,7 @@
     "name": "雲象科技",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "23.12",
     "display": "股票競拍截止 7803 雲象科技"
   },
   {
@@ -296,8 +326,8 @@
     "name": "雲象科技",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 7803 雲象科技"
+    "conv_price": "23.12",
+    "display": "股票競拍掛牌 7803 雲象科技 承銷價:23.12"
   },
   {
     "date": "2026-05-11",
@@ -306,7 +336,7 @@
     "name": "聚恆",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "24.34",
     "display": "股票競拍截止 4582 聚恆"
   },
   {
@@ -316,8 +346,8 @@
     "name": "聚恆",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 4582 聚恆"
+    "conv_price": "24.34",
+    "display": "股票競拍掛牌 4582 聚恆 承銷價:24.34"
   },
   {
     "date": "2026-05-12",
@@ -338,5 +368,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 6983 華洋精機"
+  },
+  {
+    "date": "2026-05-14",
+    "type": "股票競拍截止",
+    "code": "7819",
+    "name": "精誠金融",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 7819 精誠金融"
+  },
+  {
+    "date": "2026-05-27",
+    "type": "股票競拍掛牌",
+    "code": "7819",
+    "name": "精誠金融",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7819 精誠金融"
   }
 ]
