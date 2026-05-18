@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-05-08",
-    "type": "CB詢圈掛牌",
-    "code": "36805",
-    "name": "家登五",
-    "tcri": "tcri5",
-    "amount": "10.00E",
-    "conv_price": "488.9",
-    "display": "CB詢圈掛牌 36805 家登五 tcri5 10.00E 轉:488.9"
-  },
-  {
-    "date": "2026-05-08",
-    "type": "CB詢圈掛牌",
-    "code": "84624",
-    "name": "柏文四",
-    "tcri": "tcri5",
-    "amount": "4.00E",
-    "conv_price": "152.2",
-    "display": "CB詢圈掛牌 84624 柏文四 tcri5 4.00E 轉:152.2"
-  },
-  {
-    "date": "2026-04-27",
-    "type": "CB競拍截止",
-    "code": "52845",
-    "name": "Jpp五KY",
-    "tcri": "tcri5",
-    "amount": "3.50E",
-    "conv_price": "322.6",
-    "display": "CB競拍截止 52845 Jpp五KY tcri5 3.50E 轉:322.6"
-  },
-  {
-    "date": "2026-05-11",
-    "type": "CB競拍掛牌",
-    "code": "52845",
-    "name": "Jpp五KY",
-    "tcri": "tcri5",
-    "amount": "3.50E",
-    "conv_price": "322.6",
-    "display": "CB競拍掛牌 52845 Jpp五KY tcri5 3.50E 轉:322.6"
-  },
-  {
     "date": "2026-04-29",
     "type": "CB競拍截止",
     "code": "45031",
@@ -148,6 +108,16 @@
     "amount": "20.00E",
     "conv_price": "324",
     "display": "CB競拍掛牌 68032 崑鼎二 tcri3 20.00E 轉:324"
+  },
+  {
+    "date": "2026-05-22",
+    "type": "CB詢圈掛牌",
+    "code": "47602",
+    "name": "勤凱二",
+    "tcri": "tcri6",
+    "amount": "4.00E",
+    "conv_price": "303.5",
+    "display": "CB詢圈掛牌 47602 勤凱二 tcri6 4.00E 轉:303.5"
   },
   {
     "date": "2026-05-12",
