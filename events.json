@@ -386,7 +386,7 @@
     "name": "精誠金融",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "50.50",
     "display": "股票競拍截止 7819 精誠金融"
   },
   {
@@ -396,7 +396,7 @@
     "name": "精誠金融",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 7819 精誠金融"
+    "conv_price": "50.50",
+    "display": "股票競拍掛牌 7819 精誠金融 承銷價:50.50"
   }
 ]
