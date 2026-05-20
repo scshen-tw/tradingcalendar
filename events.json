@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-04-29",
-    "type": "CB競拍截止",
-    "code": "45031",
-    "name": "金雨一",
-    "tcri": "有擔",
-    "amount": "5.00E",
-    "conv_price": "46",
-    "display": "CB競拍截止 45031 金雨一 有擔 5.00E 轉:46"
-  },
-  {
-    "date": "2026-05-13",
-    "type": "CB競拍掛牌",
-    "code": "45031",
-    "name": "金雨一",
-    "tcri": "有擔",
-    "amount": "5.00E",
-    "conv_price": "46",
-    "display": "CB競拍掛牌 45031 金雨一 有擔 5.00E 轉:46"
-  },
-  {
     "date": "2026-04-30",
     "type": "CB競拍截止",
     "code": "41239",
@@ -188,6 +168,26 @@
     "amount": "7.00E",
     "conv_price": "175",
     "display": "CB競拍掛牌 49311 新盛力一 tcri5 7.00E 轉:175"
+  },
+  {
+    "date": "2026-05-26",
+    "type": "CB競拍截止",
+    "code": "17172",
+    "name": "長興二",
+    "tcri": "tcri3",
+    "amount": "20.00E",
+    "conv_price": "76",
+    "display": "CB競拍截止 17172 長興二 tcri3 20.00E 轉:76"
+  },
+  {
+    "date": "2026-06-08",
+    "type": "CB競拍掛牌",
+    "code": "17172",
+    "name": "長興二",
+    "tcri": "tcri3",
+    "amount": "20.00E",
+    "conv_price": "76",
+    "display": "CB競拍掛牌 17172 長興二 tcri3 20.00E 轉:76"
   },
   {
     "date": "2026-01-03",
