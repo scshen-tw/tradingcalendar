@@ -1,53 +1,13 @@
 [
   {
-    "date": "2026-04-30",
-    "type": "CB競拍截止",
-    "code": "41239",
-    "name": "晟德九",
-    "tcri": "tcri6",
-    "amount": "5.00E",
-    "conv_price": "42",
-    "display": "CB競拍截止 41239 晟德九 tcri6 5.00E 轉:42"
-  },
-  {
-    "date": "2026-05-14",
-    "type": "CB競拍掛牌",
-    "code": "41239",
-    "name": "晟德九",
-    "tcri": "tcri6",
-    "amount": "5.00E",
-    "conv_price": "42",
-    "display": "CB競拍掛牌 41239 晟德九 tcri6 5.00E 轉:42"
-  },
-  {
-    "date": "2026-04-30",
-    "type": "CB競拍截止",
-    "code": "80746",
-    "name": "鉅橡六",
-    "tcri": "有擔",
-    "amount": "3.00E",
-    "conv_price": "80.5",
-    "display": "CB競拍截止 80746 鉅橡六 有擔 3.00E 轉:80.5"
-  },
-  {
-    "date": "2026-05-14",
-    "type": "CB競拍掛牌",
-    "code": "80746",
-    "name": "鉅橡六",
-    "tcri": "有擔",
-    "amount": "3.00E",
-    "conv_price": "80.5",
-    "display": "CB競拍掛牌 80746 鉅橡六 有擔 3.00E 轉:80.5"
-  },
-  {
     "date": "2026-05-20",
     "type": "CB詢圈掛牌",
     "code": "76101",
     "name": "聯友金屬-創一",
-    "tcri": "tcri8",
+    "tcri": "tcri6",
     "amount": "8.00E",
     "conv_price": "795",
-    "display": "CB詢圈掛牌 76101 聯友金屬-創一 tcri8 8.00E 轉:795"
+    "display": "CB詢圈掛牌 76101 聯友金屬-創一 tcri6 8.00E 轉:795"
   },
   {
     "date": "2026-05-08",
@@ -188,6 +148,26 @@
     "amount": "20.00E",
     "conv_price": "76",
     "display": "CB競拍掛牌 17172 長興二 tcri3 20.00E 轉:76"
+  },
+  {
+    "date": "2026-05-27",
+    "type": "CB競拍截止",
+    "code": "34913",
+    "name": "昇達科三",
+    "tcri": "tcri5",
+    "amount": "12.00E",
+    "conv_price": "1788",
+    "display": "CB競拍截止 34913 昇達科三 tcri5 12.00E 轉:1788"
+  },
+  {
+    "date": "2026-06-09",
+    "type": "CB競拍掛牌",
+    "code": "34913",
+    "name": "昇達科三",
+    "tcri": "tcri5",
+    "amount": "12.00E",
+    "conv_price": "1788",
+    "display": "CB競拍掛牌 34913 昇達科三 tcri5 12.00E 轉:1788"
   },
   {
     "date": "2026-01-03",
