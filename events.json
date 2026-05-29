@@ -1,15 +1,5 @@
 [
   {
-    "date": "2026-05-22",
-    "type": "CB詢圈掛牌",
-    "code": "47602",
-    "name": "勤凱二",
-    "tcri": "tcri6",
-    "amount": "4.00E",
-    "conv_price": "303.5",
-    "display": "CB詢圈掛牌 47602 勤凱二 tcri6 4.00E 轉:303.5"
-  },
-  {
     "date": "2026-05-12",
     "type": "CB競拍截止",
     "code": "54642",
@@ -178,16 +168,6 @@
     "amount": "3E",
     "conv_price": "6.99",
     "display": "CB競拍掛牌 84381 昶昕一 tcri6 3E 轉:6.99"
-  },
-  {
-    "date": "2026-01-17",
-    "type": "CB詢圈掛牌",
-    "code": "66931",
-    "name": "廣閎科一",
-    "tcri": "tcri6",
-    "amount": "5E",
-    "conv_price": "4.57",
-    "display": "CB詢圈掛牌 66931 廣閎科一 tcri6 5E 轉:4.57"
   },
   {
     "date": "2026-03-05",
