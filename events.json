@@ -258,5 +258,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 7839 達人網"
+  },
+  {
+    "date": "2026-06-04",
+    "type": "股票競拍截止",
+    "code": "1780",
+    "name": "立弘",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 1780 立弘"
+  },
+  {
+    "date": "2026-06-17",
+    "type": "股票競拍掛牌",
+    "code": "1780",
+    "name": "立弘",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 1780 立弘"
   }
 ]
