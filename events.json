@@ -236,7 +236,7 @@
     "name": "達人網",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "36.00",
     "display": "股票競拍截止 7839 達人網"
   },
   {
@@ -246,8 +246,8 @@
     "name": "達人網",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 7839 達人網"
+    "conv_price": "36.00",
+    "display": "股票競拍掛牌 7839 達人網 承銷價:36.00"
   },
   {
     "date": "2026-06-04",
