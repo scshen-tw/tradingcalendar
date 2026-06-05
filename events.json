@@ -1,45 +1,5 @@
 [
   {
-    "date": "2026-05-15",
-    "type": "CB競拍截止",
-    "code": "47491",
-    "name": "新應材一",
-    "tcri": "tcri5",
-    "amount": "20.00E",
-    "conv_price": "1072",
-    "display": "CB競拍截止 47491 新應材一 tcri5 20.00E 轉:1072"
-  },
-  {
-    "date": "2026-05-28",
-    "type": "CB競拍掛牌",
-    "code": "47491",
-    "name": "新應材一",
-    "tcri": "tcri5",
-    "amount": "20.00E",
-    "conv_price": "1072",
-    "display": "CB競拍掛牌 47491 新應材一 tcri5 20.00E 轉:1072"
-  },
-  {
-    "date": "2026-05-18",
-    "type": "CB競拍截止",
-    "code": "49311",
-    "name": "新盛力一",
-    "tcri": "tcri5",
-    "amount": "7.00E",
-    "conv_price": "175",
-    "display": "CB競拍截止 49311 新盛力一 tcri5 7.00E 轉:175"
-  },
-  {
-    "date": "2026-05-29",
-    "type": "CB競拍掛牌",
-    "code": "49311",
-    "name": "新盛力一",
-    "tcri": "tcri5",
-    "amount": "7.00E",
-    "conv_price": "175",
-    "display": "CB競拍掛牌 49311 新盛力一 tcri5 7.00E 轉:175"
-  },
-  {
     "date": "2026-05-26",
     "type": "CB競拍截止",
     "code": "17172",
@@ -208,6 +168,26 @@
     "amount": "30E",
     "conv_price": "8.03",
     "display": "CB競拍掛牌 35834 辛耘四 tcri4 30E 轉:8.03"
+  },
+  {
+    "date": "2026-01-29",
+    "type": "CB詢圈掛牌",
+    "code": "23031",
+    "name": "聯電一",
+    "tcri": "tcri3",
+    "amount": "120E",
+    "conv_price": "1257.70",
+    "display": "CB詢圈掛牌 23031 聯電一 tcri3 120E 轉:1257.70"
+  },
+  {
+    "date": "2026-01-29",
+    "type": "CB競拍掛牌",
+    "code": "23032",
+    "name": "聯電二",
+    "tcri": "tcri3",
+    "amount": "40E",
+    "conv_price": "1257.70",
+    "display": "CB競拍掛牌 23032 聯電二 tcri3 40E 轉:1257.70"
   },
   {
     "date": "2026-05-25",
