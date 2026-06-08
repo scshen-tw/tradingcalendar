@@ -236,7 +236,7 @@
     "name": "立弘",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "18.88",
     "display": "股票競拍截止 1780 立弘"
   },
   {
@@ -246,7 +246,27 @@
     "name": "立弘",
     "tcri": "",
     "amount": "",
+    "conv_price": "18.88",
+    "display": "股票競拍掛牌 1780 立弘 承銷價:18.88"
+  },
+  {
+    "date": "2026-06-12",
+    "type": "股票競拍截止",
+    "code": "7814",
+    "name": "海昌生技",
+    "tcri": "",
+    "amount": "",
     "conv_price": "",
-    "display": "股票競拍掛牌 1780 立弘"
+    "display": "股票競拍截止 7814 海昌生技"
+  },
+  {
+    "date": "2026-06-26",
+    "type": "股票競拍掛牌",
+    "code": "7814",
+    "name": "海昌生技",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7814 海昌生技"
   }
 ]
