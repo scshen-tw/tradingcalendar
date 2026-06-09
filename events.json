@@ -70,6 +70,16 @@
     "display": "CB競拍掛牌 622010 岳豐十 有擔 5.00E 轉:33"
   },
   {
+    "date": "2026-06-15",
+    "type": "CB詢圈掛牌",
+    "code": "62236",
+    "name": "旺矽六",
+    "tcri": "tcri4",
+    "amount": "50.00E",
+    "conv_price": "6223",
+    "display": "CB詢圈掛牌 62236 旺矽六 tcri4 50.00E 轉:6223"
+  },
+  {
     "date": "2026-06-05",
     "type": "CB競拍截止",
     "code": "32943",
@@ -128,26 +138,6 @@
     "amount": "3E",
     "conv_price": "6.99",
     "display": "CB競拍掛牌 84381 昶昕一 tcri6 3E 轉:6.99"
-  },
-  {
-    "date": "2026-03-05",
-    "type": "CB詢圈掛牌",
-    "code": "30285",
-    "name": "增你強五",
-    "tcri": "tcri6",
-    "amount": "5E",
-    "conv_price": "23.72",
-    "display": "CB詢圈掛牌 30285 增你強五 tcri6 5E 轉:23.72"
-  },
-  {
-    "date": "2026-03-05",
-    "type": "CB競拍掛牌",
-    "code": "30286",
-    "name": "增你強六",
-    "tcri": "tcri6",
-    "amount": "20E",
-    "conv_price": "23.72",
-    "display": "CB競拍掛牌 30286 增你強六 tcri6 20E 轉:23.72"
   },
   {
     "date": "2026-04-14",
