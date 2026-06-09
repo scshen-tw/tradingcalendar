@@ -248,5 +248,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 7814 海昌生技"
+  },
+  {
+    "date": "2026-06-12",
+    "type": "股票競拍截止",
+    "code": "6986",
+    "name": "和迅",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 6986 和迅"
+  },
+  {
+    "date": "2026-06-26",
+    "type": "股票競拍掛牌",
+    "code": "6986",
+    "name": "和迅",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 6986 和迅"
   }
 ]
