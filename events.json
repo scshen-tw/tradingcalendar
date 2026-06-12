@@ -100,6 +100,96 @@
     "display": "CB競拍掛牌 32943 英濟三 有擔 3.00E 轉:41.8"
   },
   {
+    "date": "2026-06-23",
+    "type": "CB詢圈掛牌",
+    "code": "811211",
+    "name": "至上十一",
+    "tcri": "tcri6",
+    "amount": "20.00E",
+    "conv_price": "95.3",
+    "display": "CB詢圈掛牌 811211 至上十一 tcri6 20.00E 轉:95.3"
+  },
+  {
+    "date": "2026-06-16",
+    "type": "CB競拍截止",
+    "code": "65463",
+    "name": "正基三",
+    "tcri": "tcri6",
+    "amount": "2.00E",
+    "conv_price": "81.5",
+    "display": "CB競拍截止 65463 正基三 tcri6 2.00E 轉:81.5"
+  },
+  {
+    "date": "2026-06-30",
+    "type": "CB競拍掛牌",
+    "code": "65463",
+    "name": "正基三",
+    "tcri": "tcri6",
+    "amount": "2.00E",
+    "conv_price": "81.5",
+    "display": "CB競拍掛牌 65463 正基三 tcri6 2.00E 轉:81.5"
+  },
+  {
+    "date": "2026-06-16",
+    "type": "CB競拍截止",
+    "code": "41904",
+    "name": "佐登四KY",
+    "tcri": "有擔",
+    "amount": "5.00E",
+    "conv_price": "26.6",
+    "display": "CB競拍截止 41904 佐登四KY 有擔 5.00E 轉:26.6"
+  },
+  {
+    "date": "2026-06-30",
+    "type": "CB競拍掛牌",
+    "code": "41904",
+    "name": "佐登四KY",
+    "tcri": "有擔",
+    "amount": "5.00E",
+    "conv_price": "26.6",
+    "display": "CB競拍掛牌 41904 佐登四KY 有擔 5.00E 轉:26.6"
+  },
+  {
+    "date": "2026-06-17",
+    "type": "CB競拍截止",
+    "code": "52892",
+    "name": "宜鼎二",
+    "tcri": "tcri3",
+    "amount": "30.00E",
+    "conv_price": "2180",
+    "display": "CB競拍截止 52892 宜鼎二 tcri3 30.00E 轉:2180"
+  },
+  {
+    "date": "2026-07-01",
+    "type": "CB競拍掛牌",
+    "code": "52892",
+    "name": "宜鼎二",
+    "tcri": "tcri3",
+    "amount": "30.00E",
+    "conv_price": "2180",
+    "display": "CB競拍掛牌 52892 宜鼎二 tcri3 30.00E 轉:2180"
+  },
+  {
+    "date": "2026-06-18",
+    "type": "CB競拍截止",
+    "code": "61876",
+    "name": "萬潤六",
+    "tcri": "tcri5",
+    "amount": "30.00E",
+    "conv_price": "1150",
+    "display": "CB競拍截止 61876 萬潤六 tcri5 30.00E 轉:1150"
+  },
+  {
+    "date": "2026-07-02",
+    "type": "CB競拍掛牌",
+    "code": "61876",
+    "name": "萬潤六",
+    "tcri": "tcri5",
+    "amount": "30.00E",
+    "conv_price": "1150",
+    "display": "CB競拍掛牌 61876 萬潤六 tcri5 30.00E 轉:1150"
+  },
+  {
     "date": "2026-01-03",
     "type": "CB競拍掛牌",
     "code": "47642",
@@ -140,26 +230,6 @@
     "display": "CB競拍掛牌 84381 昶昕一 tcri6 3E 轉:6.99"
   },
   {
-    "date": "2026-04-14",
-    "type": "CB詢圈掛牌",
-    "code": "35833",
-    "name": "辛耘三",
-    "tcri": "tcri4",
-    "amount": "30E",
-    "conv_price": "8.03",
-    "display": "CB詢圈掛牌 35833 辛耘三 tcri4 30E 轉:8.03"
-  },
-  {
-    "date": "2026-04-14",
-    "type": "CB競拍掛牌",
-    "code": "35834",
-    "name": "辛耘四",
-    "tcri": "tcri4",
-    "amount": "30E",
-    "conv_price": "8.03",
-    "display": "CB競拍掛牌 35834 辛耘四 tcri4 30E 轉:8.03"
-  },
-  {
     "date": "2026-01-29",
     "type": "CB詢圈掛牌",
     "code": "23031",
@@ -178,6 +248,26 @@
     "amount": "40E",
     "conv_price": "1257.70",
     "display": "CB競拍掛牌 23032 聯電二 tcri3 40E 轉:1257.70"
+  },
+  {
+    "date": "2026-03-29",
+    "type": "CB詢圈掛牌",
+    "code": "81552",
+    "name": "博智二",
+    "tcri": "tcri4",
+    "amount": "30E",
+    "conv_price": "6.07",
+    "display": "CB詢圈掛牌 81552 博智二 tcri4 30E 轉:6.07"
+  },
+  {
+    "date": "2026-03-29",
+    "type": "CB競拍掛牌",
+    "code": "81553",
+    "name": "博智三",
+    "tcri": "tcri4",
+    "amount": "20E",
+    "conv_price": "6.07",
+    "display": "CB競拍掛牌 81553 博智三 tcri4 20E 轉:6.07"
   },
   {
     "date": "2026-06-02",
