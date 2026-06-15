@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-05-26",
-    "type": "CB競拍截止",
-    "code": "17172",
-    "name": "長興二",
-    "tcri": "tcri3",
-    "amount": "20.00E",
-    "conv_price": "76",
-    "display": "CB競拍截止 17172 長興二 tcri3 20.00E 轉:76"
-  },
-  {
-    "date": "2026-06-08",
-    "type": "CB競拍掛牌",
-    "code": "17172",
-    "name": "長興二",
-    "tcri": "tcri3",
-    "amount": "20.00E",
-    "conv_price": "76",
-    "display": "CB競拍掛牌 17172 長興二 tcri3 20.00E 轉:76"
-  },
-  {
     "date": "2026-05-27",
     "type": "CB競拍截止",
     "code": "34913",
