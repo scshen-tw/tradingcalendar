@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-05-27",
-    "type": "CB競拍截止",
-    "code": "34913",
-    "name": "昇達科三",
-    "tcri": "tcri5",
-    "amount": "12.00E",
-    "conv_price": "1788",
-    "display": "CB競拍截止 34913 昇達科三 tcri5 12.00E 轉:1788"
-  },
-  {
-    "date": "2026-06-09",
-    "type": "CB競拍掛牌",
-    "code": "34913",
-    "name": "昇達科三",
-    "tcri": "tcri5",
-    "amount": "12.00E",
-    "conv_price": "1788",
-    "display": "CB競拍掛牌 34913 昇達科三 tcri5 12.00E 轉:1788"
-  },
-  {
-    "date": "2026-06-09",
-    "type": "CB詢圈掛牌",
-    "code": "65462",
-    "name": "正基二",
-    "tcri": "tcri6",
-    "amount": "5.00E",
-    "conv_price": "88.5",
-    "display": "CB詢圈掛牌 65462 正基二 tcri6 5.00E 轉:88.5"
-  },
-  {
     "date": "2026-05-28",
     "type": "CB競拍截止",
     "code": "622010",
