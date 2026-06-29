@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 股票競拍截止事件提取器
-從 d:/VS Code/Auction/auction_stocks.json 讀取資料
+從 d:/vscode/Auction/auction_stocks.json 讀取資料
 篩選條件：截止日 >= 今天 - 14天（即截止日未超過兩週前）
 """
 
@@ -11,7 +11,7 @@ import os
 import urllib.request
 from datetime import datetime, timedelta
 
-STOCKS_JSON   = r"d:\VS Code\Auction\auction_stocks.json"
+STOCKS_JSON   = r"d:\vscode\Auction\auction_stocks.json"
 STOCKS_JSON_URL = "https://raw.githubusercontent.com/scshen-tw/auction-viewer/main/auction_stocks.json"
 
 

@@ -16,7 +16,7 @@ Private WithEvents cbas_Items As Outlook.Items
 ' ===== 設定區 =====
 Const TARGET_FOLDER  As String = "cbas"
 Const SUBJECT_KW     As String = "cb案件整理表"
-Const CALENDAR_DIR   As String = "D:\VS Code\TradingCalendar"   ' ← 修改為你的路徑
+Const CALENDAR_DIR   As String = "D:\VSCode\TradingCalendar"   ' ← 修改為你的路徑
 Const CACHE_HTML     As String = "cbas_latest_email.html"
 Const CACHE_META     As String = "cbas_latest_email_meta.txt"
 Const COOLDOWN_SECS  As Integer = 30   ' 同一封信觸發後，冷卻秒數（避免重複執行）

@@ -25,7 +25,7 @@ CB 可轉債與股票競拍行事曆自動更新工具。
 
 股票資料由另一個專案產生：
 
-- 本機優先讀取：`D:\VS Code\Auction\auction_stocks.json`
+- 本機優先讀取：`D:\vscode\Auction\auction_stocks.json`
 - GitHub Actions 環境改讀：`https://raw.githubusercontent.com/scshen-tw/auction-viewer/main/auction_stocks.json`
 
 `extract_stocks.py` 會略過已取消競拍資料，並只保留投標結束日不早於今天前 14 天的項目。

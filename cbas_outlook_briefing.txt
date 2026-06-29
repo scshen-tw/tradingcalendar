@@ -9,7 +9,7 @@
 
 資料來源分成兩塊：
   1. CB 可轉債：Outlook cbas 資料夾中的「cb案件整理表」郵件
-  2. 股票競拍：D:\VS Code\Auction\auction_stocks.json
+  2. 股票競拍：D:\vscode\Auction\auction_stocks.json
 
 ========================================================
   一、CB 郵件目前的自動化方式
@@ -40,7 +40,7 @@
 ========================================================
 
 來源：
-  D:\VS Code\Auction\auction_stocks.json
+  D:\vscode\Auction\auction_stocks.json
 
 GitHub Actions / 非本機環境 fallback：
   https://raw.githubusercontent.com/scshen-tw/auction-viewer/main/auction_stocks.json
@@ -127,7 +127,7 @@ auto_update.bat / update_stocks.bat 會設定：
 這是為了解決排程 git push 不能跳互動式登入的問題。
 
 Auction 專案也已改成 SSH push：
-  repo: D:\VS Code\Auction
+  repo: D:\vscode\Auction
   remote: git@github.com:scshen-tw/auction-viewer.git
   key: C:\Users\User\.ssh\id_ed25519_auction_viewer
 
