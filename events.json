@@ -160,46 +160,6 @@
     "display": "CB詢圈掛牌 27621 世界健身一KY tcri5 5E 轉:11.25"
   },
   {
-    "date": "2026-01-29",
-    "type": "CB詢圈掛牌",
-    "code": "23031",
-    "name": "聯電一",
-    "tcri": "tcri3",
-    "amount": "120E",
-    "conv_price": "1257.70",
-    "display": "CB詢圈掛牌 23031 聯電一 tcri3 120E 轉:1257.70"
-  },
-  {
-    "date": "2026-01-29",
-    "type": "CB競拍掛牌",
-    "code": "23032",
-    "name": "聯電二",
-    "tcri": "tcri3",
-    "amount": "40E",
-    "conv_price": "1257.70",
-    "display": "CB競拍掛牌 23032 聯電二 tcri3 40E 轉:1257.70"
-  },
-  {
-    "date": "2026-03-29",
-    "type": "CB詢圈掛牌",
-    "code": "81552",
-    "name": "博智二",
-    "tcri": "tcri4",
-    "amount": "30E",
-    "conv_price": "6.07",
-    "display": "CB詢圈掛牌 81552 博智二 tcri4 30E 轉:6.07"
-  },
-  {
-    "date": "2026-03-29",
-    "type": "CB競拍掛牌",
-    "code": "81553",
-    "name": "博智三",
-    "tcri": "tcri4",
-    "amount": "20E",
-    "conv_price": "6.07",
-    "display": "CB競拍掛牌 81553 博智三 tcri4 20E 轉:6.07"
-  },
-  {
     "date": "2026-07-02",
     "type": "股票競拍截止",
     "code": "7814",
