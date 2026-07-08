@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-06-17",
-    "type": "CB競拍截止",
-    "code": "52892",
-    "name": "宜鼎二",
-    "tcri": "tcri3",
-    "amount": "30.00E",
-    "conv_price": "2180",
-    "display": "CB競拍截止 52892 宜鼎二 tcri3 30.00E 轉:2180"
-  },
-  {
-    "date": "2026-07-01",
-    "type": "CB競拍掛牌",
-    "code": "52892",
-    "name": "宜鼎二",
-    "tcri": "tcri3",
-    "amount": "30.00E",
-    "conv_price": "2180",
-    "display": "CB競拍掛牌 52892 宜鼎二 tcri3 30.00E 轉:2180"
-  },
-  {
     "date": "2026-06-18",
     "type": "CB競拍截止",
     "code": "61876",
@@ -88,6 +68,16 @@
     "amount": "5.00E",
     "conv_price": "155",
     "display": "CB競拍掛牌 80963 擎亞三 tcri6 5.00E 轉:155"
+  },
+  {
+    "date": "2026-07-16",
+    "type": "CB詢圈掛牌",
+    "code": "16231",
+    "name": "大東電一",
+    "tcri": "tcri7",
+    "amount": "20.00E",
+    "conv_price": "232",
+    "display": "CB詢圈掛牌 16231 大東電一 tcri7 20.00E 轉:232"
   },
   {
     "date": "2026-07-06",
