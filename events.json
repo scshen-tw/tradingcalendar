@@ -228,5 +228,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 7835 永悅健康"
+  },
+  {
+    "date": "2026-07-15",
+    "type": "股票競拍截止",
+    "code": "7689",
+    "name": "大鵬科",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 7689 大鵬科"
+  },
+  {
+    "date": "2026-07-28",
+    "type": "股票競拍掛牌",
+    "code": "7689",
+    "name": "大鵬科",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7689 大鵬科"
   }
 ]
