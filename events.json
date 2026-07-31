@@ -166,7 +166,7 @@
     "name": "和運租車",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "42.00",
     "display": "股票競拍截止 7855 和運租車"
   },
   {
@@ -176,7 +176,7 @@
     "name": "和運租車",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 7855 和運租車"
+    "conv_price": "42.00",
+    "display": "股票競拍掛牌 7855 和運租車 承銷價:42.00"
   }
 ]
