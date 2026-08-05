@@ -1,15 +1,5 @@
 [
   {
-    "date": "2026-07-29",
-    "type": "CB詢圈掛牌",
-    "code": "52912",
-    "name": "邑昇二",
-    "tcri": "tcri6",
-    "amount": "2.00E",
-    "conv_price": "53",
-    "display": "CB詢圈掛牌 52912 邑昇二 tcri6 2.00E 轉:53"
-  },
-  {
     "date": "2026-07-30",
     "type": "CB詢圈掛牌",
     "code": "35833",
@@ -178,6 +168,16 @@
     "amount": "20.00E",
     "conv_price": "318",
     "display": "CB競拍掛牌 81553 博智三 tcri4 20.00E 轉:318"
+  },
+  {
+    "date": "2026-08-13",
+    "type": "CB詢圈掛牌",
+    "code": "30812",
+    "name": "聯亞二",
+    "tcri": "tcri6",
+    "amount": "18.00E",
+    "conv_price": "2168.8",
+    "display": "CB詢圈掛牌 30812 聯亞二 tcri6 18.00E 轉:2168.8"
   },
   {
     "date": "2026-08-04",
