@@ -1,15 +1,5 @@
 [
   {
-    "date": "2026-07-30",
-    "type": "CB詢圈掛牌",
-    "code": "35833",
-    "name": "辛耘三",
-    "tcri": "tcri4",
-    "amount": "5.00E",
-    "conv_price": "850",
-    "display": "CB詢圈掛牌 35833 辛耘三 tcri4 5.00E 轉:850"
-  },
-  {
     "date": "2026-08-03",
     "type": "CB詢圈掛牌",
     "code": "81552",
@@ -258,6 +248,26 @@
     "amount": "30.00E",
     "conv_price": "213.5",
     "display": "CB競拍掛牌 49675 十銓五 tcri5 30.00E 轉:213.5"
+  },
+  {
+    "date": "2026-08-12",
+    "type": "CB競拍截止",
+    "code": "32191",
+    "name": "倚強科一",
+    "tcri": "tcri7",
+    "amount": "6.00E",
+    "conv_price": "66.4",
+    "display": "CB競拍截止 32191 倚強科一 tcri7 6.00E 轉:66.4"
+  },
+  {
+    "date": "2026-08-25",
+    "type": "CB競拍掛牌",
+    "code": "32191",
+    "name": "倚強科一",
+    "tcri": "tcri7",
+    "amount": "6.00E",
+    "conv_price": "66.4",
+    "display": "CB競拍掛牌 32191 倚強科一 tcri7 6.00E 轉:66.4"
   },
   {
     "date": "2026-08-02",
