@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-08-03",
-    "type": "CB詢圈掛牌",
-    "code": "81552",
-    "name": "博智二",
-    "tcri": "tcri4",
-    "amount": "30.00E",
-    "conv_price": "338",
-    "display": "CB詢圈掛牌 81552 博智二 tcri4 30.00E 轉:338"
-  },
-  {
-    "date": "2026-08-04",
-    "type": "CB詢圈掛牌",
-    "code": "55362",
-    "name": "聖暉二",
-    "tcri": "tcri3",
-    "amount": "15.00E",
-    "conv_price": "1178",
-    "display": "CB詢圈掛牌 55362 聖暉二 tcri3 15.00E 轉:1178"
-  },
-  {
     "date": "2026-07-23",
     "type": "CB競拍截止",
     "code": "47642",
@@ -258,6 +238,16 @@
     "amount": "30.00E",
     "conv_price": "213.5",
     "display": "CB競拍掛牌 49675 十銓五 tcri5 30.00E 轉:213.5"
+  },
+  {
+    "date": "2026-08-18",
+    "type": "CB詢圈掛牌",
+    "code": "30166",
+    "name": "嘉晶六",
+    "tcri": "tcri6",
+    "amount": "3.50E",
+    "conv_price": "105",
+    "display": "CB詢圈掛牌 30166 嘉晶六 tcri6 3.50E 轉:105"
   },
   {
     "date": "2026-08-12",
