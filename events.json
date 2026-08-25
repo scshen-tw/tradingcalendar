@@ -328,5 +328,25 @@
     "amount": "30E",
     "conv_price": "14.57",
     "display": "CB競拍掛牌 34502 聯鈞二 tcri4 30E 轉:14.57"
+  },
+  {
+    "date": "2026-08-28",
+    "type": "股票競拍截止",
+    "code": "7825",
+    "name": "和亞智慧",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 7825 和亞智慧"
+  },
+  {
+    "date": "2026-09-10",
+    "type": "股票競拍掛牌",
+    "code": "7825",
+    "name": "和亞智慧",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7825 和亞智慧"
   }
 ]
