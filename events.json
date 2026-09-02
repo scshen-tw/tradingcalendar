@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-08-21",
-    "type": "CB詢圈掛牌",
-    "code": "49731",
-    "name": "廣穎電通一",
-    "tcri": "tcri6",
-    "amount": "5.00E",
-    "conv_price": "169.6",
-    "display": "CB詢圈掛牌 49731 廣穎電通一 tcri6 5.00E 轉:169.6"
-  },
-  {
-    "date": "2026-08-12",
-    "type": "CB競拍截止",
-    "code": "32191",
-    "name": "倚強科一",
-    "tcri": "tcri7",
-    "amount": "6.00E",
-    "conv_price": "66.4",
-    "display": "CB競拍截止 32191 倚強科一 tcri7 6.00E 轉:66.4"
-  },
-  {
-    "date": "2026-08-25",
-    "type": "CB競拍掛牌",
-    "code": "32191",
-    "name": "倚強科一",
-    "tcri": "tcri7",
-    "amount": "6.00E",
-    "conv_price": "66.4",
-    "display": "CB競拍掛牌 32191 倚強科一 tcri7 6.00E 轉:66.4"
-  },
-  {
     "date": "2026-08-26",
     "type": "CB詢圈掛牌",
     "code": "76311",
@@ -160,6 +130,16 @@
     "display": "CB競拍掛牌 82221 寶一一 有擔 4.00E 轉:42.3"
   },
   {
+    "date": "2026-02-01",
+    "type": "CB詢圈掛牌",
+    "code": "27621",
+    "name": "世界健身一KY",
+    "tcri": "tcri5",
+    "amount": "5E",
+    "conv_price": "11.25",
+    "display": "CB詢圈掛牌 27621 世界健身一KY tcri5 5E 轉:11.25"
+  },
+  {
     "date": "2026-08-02",
     "type": "CB詢圈掛牌",
     "code": "62746",
@@ -198,26 +178,6 @@
     "amount": "150E",
     "conv_price": "168.36",
     "display": "CB詢圈掛牌 37024 大聯大四 tcri4 150E 轉:168.36"
-  },
-  {
-    "date": "2026-02-16",
-    "type": "CB詢圈掛牌",
-    "code": "89965",
-    "name": "高力五",
-    "tcri": "tcri5",
-    "amount": "25E",
-    "conv_price": "9.35",
-    "display": "CB詢圈掛牌 89965 高力五 tcri5 25E 轉:9.35"
-  },
-  {
-    "date": "2026-02-16",
-    "type": "CB競拍掛牌",
-    "code": "89966",
-    "name": "高力六",
-    "tcri": "tcri5",
-    "amount": "15E",
-    "conv_price": "9.35",
-    "display": "CB競拍掛牌 89966 高力六 tcri5 15E 轉:9.35"
   },
   {
     "date": "2026-02-02",
