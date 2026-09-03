@@ -258,5 +258,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 2938 床的世界"
+  },
+  {
+    "date": "2026-09-09",
+    "type": "股票競拍截止",
+    "code": "7856",
+    "name": "漢測",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 7856 漢測"
+  },
+  {
+    "date": "2026-09-22",
+    "type": "股票競拍掛牌",
+    "code": "7856",
+    "name": "漢測",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7856 漢測"
   }
 ]
