@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-08-28",
-    "type": "CB競拍截止",
-    "code": "82221",
-    "name": "寶一一",
-    "tcri": "有擔",
-    "amount": "4.00E",
-    "conv_price": "42.3",
-    "display": "CB競拍截止 82221 寶一一 有擔 4.00E 轉:42.3"
-  },
-  {
-    "date": "2026-09-10",
-    "type": "CB競拍掛牌",
-    "code": "82221",
-    "name": "寶一一",
-    "tcri": "有擔",
-    "amount": "4.00E",
-    "conv_price": "42.3",
-    "display": "CB競拍掛牌 82221 寶一一 有擔 4.00E 轉:42.3"
-  },
-  {
-    "date": "2026-09-10",
-    "type": "CB詢圈掛牌",
-    "code": "77431",
-    "name": "金利食安一",
-    "tcri": "tcri6",
-    "amount": "2.00E",
-    "conv_price": "22.5",
-    "display": "CB詢圈掛牌 77431 金利食安一 tcri6 2.00E 轉:22.5"
-  },
-  {
     "date": "2026-09-11",
     "type": "CB詢圈掛牌",
     "code": "22211",
@@ -44,10 +14,10 @@
     "type": "CB詢圈掛牌",
     "code": "32609",
     "name": "威剛九",
-    "tcri": "tcri5",
+    "tcri": "tcri4",
     "amount": "30.00E",
     "conv_price": "435.5",
-    "display": "CB詢圈掛牌 32609 威剛九 tcri5 30.00E 轉:435.5"
+    "display": "CB詢圈掛牌 32609 威剛九 tcri4 30.00E 轉:435.5"
   },
   {
     "date": "2026-09-08",
@@ -190,6 +160,16 @@
     "display": "CB競拍掛牌 30062 晶豪科二 有擔 20.00E 轉:308"
   },
   {
+    "date": "2026-09-29",
+    "type": "CB詢圈掛牌",
+    "code": "26461",
+    "name": "星宇一",
+    "tcri": "tcri6",
+    "amount": "5.00E",
+    "conv_price": "21.4",
+    "display": "CB詢圈掛牌 26461 星宇一 tcri6 5.00E 轉:21.4"
+  },
+  {
     "date": "2026-09-21",
     "type": "CB競拍截止",
     "code": "84223",
@@ -218,16 +198,6 @@
     "amount": "5E",
     "conv_price": "11.25",
     "display": "CB詢圈掛牌 27621 世界健身一KY tcri5 5E 轉:11.25"
-  },
-  {
-    "date": "2026-08-02",
-    "type": "CB詢圈掛牌",
-    "code": "62746",
-    "name": "台燿六",
-    "tcri": "tcri4",
-    "amount": "100E",
-    "conv_price": "29.95",
-    "display": "CB詢圈掛牌 62746 台燿六 tcri4 100E 轉:29.95"
   },
   {
     "date": "2026-03-03",
@@ -288,16 +258,6 @@
     "amount": "60E",
     "conv_price": "52.29",
     "display": "CB競拍掛牌 23684 金像電四 tcri3 60E 轉:52.29"
-  },
-  {
-    "date": "2026-03-24",
-    "type": "CB詢圈掛牌",
-    "code": "24922",
-    "name": "華新科二",
-    "tcri": "tcri3",
-    "amount": "45E",
-    "conv_price": "48.52",
-    "display": "CB詢圈掛牌 24922 華新科二 tcri3 45E 轉:48.52"
   },
   {
     "date": "2026-01-07",
