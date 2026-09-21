@@ -1,23 +1,13 @@
 [
   {
-    "date": "2026-09-11",
-    "type": "CB詢圈掛牌",
-    "code": "22211",
-    "name": "大甲一",
-    "tcri": "tcri6",
-    "amount": "5.00E",
-    "conv_price": "82.16",
-    "display": "CB詢圈掛牌 22211 大甲一 tcri6 5.00E 轉:82.16"
-  },
-  {
     "date": "2026-09-18",
     "type": "CB詢圈掛牌",
     "code": "32609",
     "name": "威剛九",
     "tcri": "tcri4",
     "amount": "30.00E",
-    "conv_price": "435.5",
-    "display": "CB詢圈掛牌 32609 威剛九 tcri4 30.00E 轉:435.5"
+    "conv_price": "416",
+    "display": "CB詢圈掛牌 32609 威剛九 tcri4 30.00E 轉:416"
   },
   {
     "date": "2026-09-08",
@@ -120,6 +110,26 @@
     "display": "CB競拍掛牌 30286 增你強六 tcri6 20.00E 轉:67.8"
   },
   {
+    "date": "2026-09-29",
+    "type": "CB詢圈掛牌",
+    "code": "26461",
+    "name": "星宇一",
+    "tcri": "tcri6",
+    "amount": "5.00E",
+    "conv_price": "21.4",
+    "display": "CB詢圈掛牌 26461 星宇一 tcri6 5.00E 轉:21.4"
+  },
+  {
+    "date": "2026-09-30",
+    "type": "CB詢圈掛牌",
+    "code": "84424",
+    "name": "威宏四KY",
+    "tcri": "tcri6",
+    "amount": "2.00E",
+    "conv_price": "48",
+    "display": "CB詢圈掛牌 84424 威宏四KY tcri6 2.00E 轉:48"
+  },
+  {
     "date": "2026-09-15",
     "type": "CB競拍截止",
     "code": "26462",
@@ -158,16 +168,6 @@
     "amount": "20.00E",
     "conv_price": "308",
     "display": "CB競拍掛牌 30062 晶豪科二 有擔 20.00E 轉:308"
-  },
-  {
-    "date": "2026-09-29",
-    "type": "CB詢圈掛牌",
-    "code": "26461",
-    "name": "星宇一",
-    "tcri": "tcri6",
-    "amount": "5.00E",
-    "conv_price": "21.4",
-    "display": "CB詢圈掛牌 26461 星宇一 tcri6 5.00E 轉:21.4"
   },
   {
     "date": "2026-09-21",
@@ -218,16 +218,6 @@
     "amount": "6E",
     "conv_price": "3.71",
     "display": "CB詢圈掛牌 67251 矽科宏晟一 tcri6 6E 轉:3.71"
-  },
-  {
-    "date": "2026-05-12",
-    "type": "CB詢圈掛牌",
-    "code": "37024",
-    "name": "大聯大四",
-    "tcri": "tcri4",
-    "amount": "150E",
-    "conv_price": "168.36",
-    "display": "CB詢圈掛牌 37024 大聯大四 tcri4 150E 轉:168.36"
   },
   {
     "date": "2026-02-09",
