@@ -296,7 +296,7 @@
     "name": "儒億",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "24.00",
     "display": "股票競拍截止 6604 儒億"
   },
   {
@@ -306,7 +306,7 @@
     "name": "儒億",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 6604 儒億"
+    "conv_price": "24.00",
+    "display": "股票競拍掛牌 6604 儒億 承銷價:24.00"
   }
 ]
