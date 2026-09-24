@@ -170,6 +170,16 @@
     "display": "CB競拍掛牌 30062 晶豪科二 有擔 20.00E 轉:308"
   },
   {
+    "date": "2026-10-02",
+    "type": "CB詢圈掛牌",
+    "code": "61743",
+    "name": "安碁三",
+    "tcri": "tcri6",
+    "amount": "3.00E",
+    "conv_price": "46.4",
+    "display": "CB詢圈掛牌 61743 安碁三 tcri6 3.00E 轉:46.4"
+  },
+  {
     "date": "2026-09-21",
     "type": "CB競拍截止",
     "code": "84223",
@@ -250,24 +260,24 @@
     "display": "CB競拍掛牌 23684 金像電四 tcri3 60E 轉:52.29"
   },
   {
-    "date": "2026-01-07",
-    "type": "CB詢圈掛牌",
-    "code": "45422",
-    "name": "科嶠二",
-    "tcri": "tcri7",
+    "date": "2026-01-08",
+    "type": "CB競拍掛牌",
+    "code": "77281",
+    "name": "光焱科技一",
+    "tcri": "tcri6",
     "amount": "5E",
-    "conv_price": "3.53",
-    "display": "CB詢圈掛牌 45422 科嶠二 tcri7 5E 轉:3.53"
+    "conv_price": "1.39",
+    "display": "CB競拍掛牌 77281 光焱科技一 tcri6 5E 轉:1.39"
   },
   {
-    "date": "2026-01-07",
-    "type": "CB競拍掛牌",
-    "code": "45423",
-    "name": "科嶠三",
-    "tcri": "tcri7",
-    "amount": "5E",
-    "conv_price": "3.53",
-    "display": "CB競拍掛牌 45423 科嶠三 tcri7 5E 轉:3.53"
+    "date": "2026-01-08",
+    "type": "CB詢圈掛牌",
+    "code": "77282",
+    "name": "光焱科技二",
+    "tcri": "tcri6",
+    "amount": "6E",
+    "conv_price": "1.39",
+    "display": "CB詢圈掛牌 77282 光焱科技二 tcri6 6E 轉:1.39"
   },
   {
     "date": "2026-09-21",
