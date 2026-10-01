@@ -308,5 +308,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 7806 精華生醫"
+  },
+  {
+    "date": "2026-10-06",
+    "type": "股票競拍截止",
+    "code": "6467",
+    "name": "泰合",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 6467 泰合"
+  },
+  {
+    "date": "2026-10-20",
+    "type": "股票競拍掛牌",
+    "code": "6467",
+    "name": "泰合",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 6467 泰合"
   }
 ]
