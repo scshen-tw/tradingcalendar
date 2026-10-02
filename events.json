@@ -328,5 +328,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 6467 泰合"
+  },
+  {
+    "date": "2026-10-08",
+    "type": "股票競拍截止",
+    "code": "2249",
+    "name": "湧盛",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 2249 湧盛"
+  },
+  {
+    "date": "2026-10-22",
+    "type": "股票競拍掛牌",
+    "code": "2249",
+    "name": "湧盛",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 2249 湧盛"
   }
 ]
