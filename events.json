@@ -1,65 +1,5 @@
 [
   {
-    "date": "2026-09-14",
-    "type": "CB競拍截止",
-    "code": "30286",
-    "name": "增你強六",
-    "tcri": "tcri6",
-    "amount": "20.00E",
-    "conv_price": "67.8",
-    "display": "CB競拍截止 30286 增你強六 tcri6 20.00E 轉:67.8"
-  },
-  {
-    "date": "2026-09-29",
-    "type": "CB競拍掛牌",
-    "code": "30286",
-    "name": "增你強六",
-    "tcri": "tcri6",
-    "amount": "20.00E",
-    "conv_price": "67.8",
-    "display": "CB競拍掛牌 30286 增你強六 tcri6 20.00E 轉:67.8"
-  },
-  {
-    "date": "2026-09-29",
-    "type": "CB詢圈掛牌",
-    "code": "26461",
-    "name": "星宇一",
-    "tcri": "tcri6",
-    "amount": "5.00E",
-    "conv_price": "21.4",
-    "display": "CB詢圈掛牌 26461 星宇一 tcri6 5.00E 轉:21.4"
-  },
-  {
-    "date": "2026-09-30",
-    "type": "CB詢圈掛牌",
-    "code": "84424",
-    "name": "威宏四KY",
-    "tcri": "tcri6",
-    "amount": "2.00E",
-    "conv_price": "48",
-    "display": "CB詢圈掛牌 84424 威宏四KY tcri6 2.00E 轉:48"
-  },
-  {
-    "date": "2026-09-15",
-    "type": "CB競拍截止",
-    "code": "26462",
-    "name": "星宇航空二",
-    "tcri": "tcri6",
-    "amount": "15.00E",
-    "conv_price": "21.2",
-    "display": "CB競拍截止 26462 星宇航空二 tcri6 15.00E 轉:21.2"
-  },
-  {
-    "date": "2026-09-30",
-    "type": "CB競拍掛牌",
-    "code": "26462",
-    "name": "星宇航空二",
-    "tcri": "tcri6",
-    "amount": "15.00E",
-    "conv_price": "21.2",
-    "display": "CB競拍掛牌 26462 星宇航空二 tcri6 15.00E 轉:21.2"
-  },
-  {
     "date": "2026-09-17",
     "type": "CB競拍截止",
     "code": "30062",
@@ -118,6 +58,26 @@
     "amount": "25.00E",
     "conv_price": "1656",
     "display": "CB詢圈掛牌 89965 高力五 tcri4 25.00E 轉:1656"
+  },
+  {
+    "date": "2026-10-13",
+    "type": "CB詢圈掛牌",
+    "code": "62854",
+    "name": "啟碁四",
+    "tcri": "tcri3",
+    "amount": "60.00E",
+    "conv_price": "268",
+    "display": "CB詢圈掛牌 62854 啟碁四 tcri3 60.00E 轉:268"
+  },
+  {
+    "date": "2026-10-13",
+    "type": "CB詢圈掛牌",
+    "code": "64383",
+    "name": "迅得三",
+    "tcri": "tcri5",
+    "amount": "5.00E",
+    "conv_price": "172",
+    "display": "CB詢圈掛牌 64383 迅得三 tcri5 5.00E 轉:172"
   },
   {
     "date": "2026-10-06",
@@ -220,6 +180,26 @@
     "display": "CB競拍掛牌 89966 高力六 tcri4 15.00E 轉:1635"
   },
   {
+    "date": "2026-10-12",
+    "type": "CB競拍截止",
+    "code": "62855",
+    "name": "啟碁五",
+    "tcri": "tcri3",
+    "amount": "20.00E",
+    "conv_price": "242",
+    "display": "CB競拍截止 62855 啟碁五 tcri3 20.00E 轉:242"
+  },
+  {
+    "date": "2026-10-23",
+    "type": "CB競拍掛牌",
+    "code": "62855",
+    "name": "啟碁五",
+    "tcri": "tcri3",
+    "amount": "20.00E",
+    "conv_price": "242",
+    "display": "CB競拍掛牌 62855 啟碁五 tcri3 20.00E 轉:242"
+  },
+  {
     "date": "2026-02-01",
     "type": "CB詢圈掛牌",
     "code": "27621",
@@ -276,8 +256,8 @@
     "name": "金像電四",
     "tcri": "tcri3",
     "amount": "60E",
-    "conv_price": "52.29",
-    "display": "CB競拍掛牌 23684 金像電四 tcri3 60E 轉:52.29"
+    "conv_price": "53.06",
+    "display": "CB競拍掛牌 23684 金像電四 tcri3 60E 轉:53.06"
   },
   {
     "date": "2026-01-08",
