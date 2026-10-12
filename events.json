@@ -1,35 +1,5 @@
 [
   {
-    "date": "2026-09-17",
-    "type": "CB競拍截止",
-    "code": "30062",
-    "name": "晶豪科二",
-    "tcri": "有擔",
-    "amount": "20.00E",
-    "conv_price": "308",
-    "display": "CB競拍截止 30062 晶豪科二 有擔 20.00E 轉:308"
-  },
-  {
-    "date": "2026-10-02",
-    "type": "CB競拍掛牌",
-    "code": "30062",
-    "name": "晶豪科二",
-    "tcri": "有擔",
-    "amount": "20.00E",
-    "conv_price": "308",
-    "display": "CB競拍掛牌 30062 晶豪科二 有擔 20.00E 轉:308"
-  },
-  {
-    "date": "2026-10-02",
-    "type": "CB詢圈掛牌",
-    "code": "61743",
-    "name": "安碁三",
-    "tcri": "tcri6",
-    "amount": "3.00E",
-    "conv_price": "46.4",
-    "display": "CB詢圈掛牌 61743 安碁三 tcri6 3.00E 轉:46.4"
-  },
-  {
     "date": "2026-09-21",
     "type": "CB競拍截止",
     "code": "84223",
@@ -78,6 +48,16 @@
     "amount": "5.00E",
     "conv_price": "172",
     "display": "CB詢圈掛牌 64383 迅得三 tcri5 5.00E 轉:172"
+  },
+  {
+    "date": "2026-10-16",
+    "type": "CB詢圈掛牌",
+    "code": "77381",
+    "name": "東聯互動一",
+    "tcri": "tcri6",
+    "amount": "5.00E",
+    "conv_price": "163.5",
+    "display": "CB詢圈掛牌 77381 東聯互動一 tcri6 5.00E 轉:163.5"
   },
   {
     "date": "2026-10-06",
@@ -198,6 +178,26 @@
     "amount": "20.00E",
     "conv_price": "242",
     "display": "CB競拍掛牌 62855 啟碁五 tcri3 20.00E 轉:242"
+  },
+  {
+    "date": "2026-10-15",
+    "type": "CB競拍截止",
+    "code": "12951",
+    "name": "生合一",
+    "tcri": "tcri6",
+    "amount": "4.00E",
+    "conv_price": "50",
+    "display": "CB競拍截止 12951 生合一 tcri6 4.00E 轉:50"
+  },
+  {
+    "date": "2026-10-29",
+    "type": "CB競拍掛牌",
+    "code": "12951",
+    "name": "生合一",
+    "tcri": "tcri6",
+    "amount": "4.00E",
+    "conv_price": "50",
+    "display": "CB競拍掛牌 12951 生合一 tcri6 4.00E 轉:50"
   },
   {
     "date": "2026-02-01",
