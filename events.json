@@ -306,7 +306,7 @@
     "name": "湧盛",
     "tcri": "",
     "amount": "",
-    "conv_price": "66.00",
+    "conv_price": "",
     "display": "股票競拍截止 2249 湧盛"
   },
   {
@@ -316,8 +316,8 @@
     "name": "湧盛",
     "tcri": "",
     "amount": "",
-    "conv_price": "66.00",
-    "display": "股票競拍掛牌 2249 湧盛 承銷價:66.00"
+    "conv_price": "",
+    "display": "股票競拍掛牌 2249 湧盛"
   },
   {
     "date": "2026-10-12",
@@ -326,7 +326,7 @@
     "name": "藍新資訊",
     "tcri": "",
     "amount": "",
-    "conv_price": "68.00",
+    "conv_price": "",
     "display": "股票競拍截止 6938 藍新資訊"
   },
   {
@@ -336,8 +336,8 @@
     "name": "藍新資訊",
     "tcri": "",
     "amount": "",
-    "conv_price": "68.00",
-    "display": "股票競拍掛牌 6938 藍新資訊 承銷價:68.00"
+    "conv_price": "",
+    "display": "股票競拍掛牌 6938 藍新資訊"
   },
   {
     "date": "2026-10-12",
@@ -346,7 +346,7 @@
     "name": "程曦資訊",
     "tcri": "",
     "amount": "",
-    "conv_price": "60.00",
+    "conv_price": "",
     "display": "股票競拍截止 6898 程曦資訊"
   },
   {
@@ -356,8 +356,8 @@
     "name": "程曦資訊",
     "tcri": "",
     "amount": "",
-    "conv_price": "60.00",
-    "display": "股票競拍掛牌 6898 程曦資訊 承銷價:60.00"
+    "conv_price": "",
+    "display": "股票競拍掛牌 6898 程曦資訊"
   },
   {
     "date": "2026-10-13",
@@ -398,25 +398,5 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 7867 特力屋"
-  },
-  {
-    "date": "2026-10-15",
-    "type": "股票競拍截止",
-    "code": "6825",
-    "name": "和暢科技",
-    "tcri": "",
-    "amount": "",
-    "conv_price": "",
-    "display": "股票競拍截止 6825 和暢科技"
-  },
-  {
-    "date": "2026-10-29",
-    "type": "股票競拍掛牌",
-    "code": "6825",
-    "name": "和暢科技",
-    "tcri": "",
-    "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 6825 和暢科技"
   }
 ]
