@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-09-21",
-    "type": "CB競拍截止",
-    "code": "84223",
-    "name": "可寧衛三",
-    "tcri": "tcri4",
-    "amount": "25.00E",
-    "conv_price": "30",
-    "display": "CB競拍截止 84223 可寧衛三 tcri4 25.00E 轉:30"
-  },
-  {
-    "date": "2026-10-06",
-    "type": "CB競拍掛牌",
-    "code": "84223",
-    "name": "可寧衛三",
-    "tcri": "tcri4",
-    "amount": "25.00E",
-    "conv_price": "30",
-    "display": "CB競拍掛牌 84223 可寧衛三 tcri4 25.00E 轉:30"
-  },
-  {
     "date": "2026-10-12",
     "type": "CB詢圈掛牌",
     "code": "89965",
@@ -210,16 +190,6 @@
     "display": "CB詢圈掛牌 27621 世界健身一KY tcri5 5E 轉:11.25"
   },
   {
-    "date": "2026-03-03",
-    "type": "CB競拍掛牌",
-    "code": "69221",
-    "name": "宸曜一",
-    "tcri": "tcri6",
-    "amount": "5E",
-    "conv_price": "2.72",
-    "display": "CB競拍掛牌 69221 宸曜一 tcri6 5E 轉:2.72"
-  },
-  {
     "date": "2026-02-26",
     "type": "CB詢圈掛牌",
     "code": "67251",
@@ -356,7 +326,7 @@
     "name": "藍新資訊",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "68.00",
     "display": "股票競拍截止 6938 藍新資訊"
   },
   {
@@ -366,8 +336,8 @@
     "name": "藍新資訊",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 6938 藍新資訊"
+    "conv_price": "68.00",
+    "display": "股票競拍掛牌 6938 藍新資訊 承銷價:68.00"
   },
   {
     "date": "2026-10-12",
@@ -376,7 +346,7 @@
     "name": "程曦資訊",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "60.00",
     "display": "股票競拍截止 6898 程曦資訊"
   },
   {
@@ -386,8 +356,8 @@
     "name": "程曦資訊",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 6898 程曦資訊"
+    "conv_price": "60.00",
+    "display": "股票競拍掛牌 6898 程曦資訊 承銷價:60.00"
   },
   {
     "date": "2026-10-13",
