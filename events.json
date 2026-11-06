@@ -1,75 +1,5 @@
 [
   {
-    "date": "2026-10-08",
-    "type": "CB競拍截止",
-    "code": "89966",
-    "name": "高力六",
-    "tcri": "tcri4",
-    "amount": "15.00E",
-    "conv_price": "1635",
-    "display": "CB競拍截止 89966 高力六 tcri4 15.00E 轉:1635"
-  },
-  {
-    "date": "2026-10-22",
-    "type": "CB競拍掛牌",
-    "code": "89966",
-    "name": "高力六",
-    "tcri": "tcri4",
-    "amount": "15.00E",
-    "conv_price": "1635",
-    "display": "CB競拍掛牌 89966 高力六 tcri4 15.00E 轉:1635"
-  },
-  {
-    "date": "2026-10-12",
-    "type": "CB競拍截止",
-    "code": "62855",
-    "name": "啟碁五",
-    "tcri": "tcri3",
-    "amount": "20.00E",
-    "conv_price": "242",
-    "display": "CB競拍截止 62855 啟碁五 tcri3 20.00E 轉:242"
-  },
-  {
-    "date": "2026-10-23",
-    "type": "CB競拍掛牌",
-    "code": "62855",
-    "name": "啟碁五",
-    "tcri": "tcri3",
-    "amount": "20.00E",
-    "conv_price": "242",
-    "display": "CB競拍掛牌 62855 啟碁五 tcri3 20.00E 轉:242"
-  },
-  {
-    "date": "2026-10-29",
-    "type": "CB詢圈掛牌",
-    "code": "62746",
-    "name": "台燿六",
-    "tcri": "tcri3",
-    "amount": "100.00E",
-    "conv_price": "1655.8",
-    "display": "CB詢圈掛牌 62746 台燿六 tcri3 100.00E 轉:1655.8"
-  },
-  {
-    "date": "2026-10-15",
-    "type": "CB競拍截止",
-    "code": "12951",
-    "name": "生合一",
-    "tcri": "tcri6",
-    "amount": "4.00E",
-    "conv_price": "50",
-    "display": "CB競拍截止 12951 生合一 tcri6 4.00E 轉:50"
-  },
-  {
-    "date": "2026-10-30",
-    "type": "CB競拍掛牌",
-    "code": "12951",
-    "name": "生合一",
-    "tcri": "tcri6",
-    "amount": "4.00E",
-    "conv_price": "50",
-    "display": "CB競拍掛牌 12951 生合一 tcri6 4.00E 轉:50"
-  },
-  {
     "date": "2026-11-05",
     "type": "CB詢圈掛牌",
     "code": "37024",
@@ -88,6 +18,26 @@
     "amount": "45.00E",
     "conv_price": "497",
     "display": "CB詢圈掛牌 24922 華新科二 tcri3 45.00E 轉:497"
+  },
+  {
+    "date": "2026-11-10",
+    "type": "CB詢圈掛牌",
+    "code": "66581",
+    "name": "聯策一",
+    "tcri": "tcri6",
+    "amount": "2.50E",
+    "conv_price": "180",
+    "display": "CB詢圈掛牌 66581 聯策一 tcri6 2.50E 轉:180"
+  },
+  {
+    "date": "2026-11-10",
+    "type": "CB詢圈掛牌",
+    "code": "65971",
+    "name": "立誠一",
+    "tcri": "tcri7",
+    "amount": "4.50E",
+    "conv_price": "69.5",
+    "display": "CB詢圈掛牌 65971 立誠一 tcri7 4.50E 轉:69.5"
   },
   {
     "date": "2026-10-29",
@@ -128,6 +78,26 @@
     "amount": "5.00E",
     "conv_price": "45.3",
     "display": "CB競拍掛牌 33395 泰谷五 有擔 5.00E 轉:45.3"
+  },
+  {
+    "date": "2026-11-12",
+    "type": "CB詢圈掛牌",
+    "code": "25305",
+    "name": "華建五",
+    "tcri": "tcri7",
+    "amount": "9.00E",
+    "conv_price": "20.5",
+    "display": "CB詢圈掛牌 25305 華建五 tcri7 9.00E 轉:20.5"
+  },
+  {
+    "date": "2026-11-12",
+    "type": "CB詢圈掛牌",
+    "code": "99589",
+    "name": "世紀鋼九",
+    "tcri": "tcri5",
+    "amount": "15.00E",
+    "conv_price": "88",
+    "display": "CB詢圈掛牌 99589 世紀鋼九 tcri5 15.00E 轉:88"
   },
   {
     "date": "2026-11-03",
