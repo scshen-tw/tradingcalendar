@@ -100,6 +100,66 @@
     "display": "CB詢圈掛牌 99589 世紀鋼九 tcri5 15.00E 轉:88"
   },
   {
+    "date": "2026-11-16",
+    "type": "CB詢圈掛牌",
+    "code": "23444",
+    "name": "華邦電四",
+    "tcri": "tcri3",
+    "amount": "140.00E",
+    "conv_price": "140",
+    "display": "CB詢圈掛牌 23444 華邦電四 tcri3 140.00E 轉:140"
+  },
+  {
+    "date": "2026-11-16",
+    "type": "CB詢圈掛牌",
+    "code": "35972",
+    "name": "映興二",
+    "tcri": "tcri6",
+    "amount": "2.00E",
+    "conv_price": "41.2",
+    "display": "CB詢圈掛牌 35972 映興二 tcri6 2.00E 轉:41.2"
+  },
+  {
+    "date": "2026-11-12",
+    "type": "CB競拍截止",
+    "code": "15697",
+    "name": "濱川七",
+    "tcri": "有擔",
+    "amount": "4.00E",
+    "conv_price": "92.5",
+    "display": "CB競拍截止 15697 濱川七 有擔 4.00E 轉:92.5"
+  },
+  {
+    "date": "2026-11-25",
+    "type": "CB競拍掛牌",
+    "code": "15697",
+    "name": "濱川七",
+    "tcri": "有擔",
+    "amount": "4.00E",
+    "conv_price": "92.5",
+    "display": "CB競拍掛牌 15697 濱川七 有擔 4.00E 轉:92.5"
+  },
+  {
+    "date": "2026-11-13",
+    "type": "CB競拍截止",
+    "code": "23445",
+    "name": "華邦電五",
+    "tcri": "tcri3",
+    "amount": "40.00E",
+    "conv_price": "134",
+    "display": "CB競拍截止 23445 華邦電五 tcri3 40.00E 轉:134"
+  },
+  {
+    "date": "2026-11-26",
+    "type": "CB競拍掛牌",
+    "code": "23445",
+    "name": "華邦電五",
+    "tcri": "tcri3",
+    "amount": "40.00E",
+    "conv_price": "134",
+    "display": "CB競拍掛牌 23445 華邦電五 tcri3 40.00E 轉:134"
+  },
+  {
     "date": "2026-11-03",
     "type": "股票競拍截止",
     "code": "7848",
@@ -158,5 +218,25 @@
     "amount": "",
     "conv_price": "",
     "display": "股票競拍掛牌 8058 耐特"
+  },
+  {
+    "date": "2026-11-13",
+    "type": "股票競拍截止",
+    "code": "7869",
+    "name": "宏于電機",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 7869 宏于電機"
+  },
+  {
+    "date": "2026-11-26",
+    "type": "股票競拍掛牌",
+    "code": "7869",
+    "name": "宏于電機",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7869 宏于電機"
   }
 ]
