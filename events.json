@@ -85,9 +85,9 @@
     "code": "25305",
     "name": "華建五",
     "tcri": "tcri7",
-    "amount": "9.00E",
+    "amount": "4.00E",
     "conv_price": "20.5",
-    "display": "CB詢圈掛牌 25305 華建五 tcri7 9.00E 轉:20.5"
+    "display": "CB詢圈掛牌 25305 華建五 tcri7 4.00E 轉:20.5"
   },
   {
     "date": "2026-11-12",
@@ -118,6 +118,26 @@
     "amount": "2.00E",
     "conv_price": "41.2",
     "display": "CB詢圈掛牌 35972 映興二 tcri6 2.00E 轉:41.2"
+  },
+  {
+    "date": "2026-11-17",
+    "type": "CB詢圈掛牌",
+    "code": "32896",
+    "name": "宜特六",
+    "tcri": "tcri5",
+    "amount": "12.00E",
+    "conv_price": "112",
+    "display": "CB詢圈掛牌 32896 宜特六 tcri5 12.00E 轉:112"
+  },
+  {
+    "date": "2026-11-17",
+    "type": "CB詢圈掛牌",
+    "code": "49166",
+    "name": "事欣科六",
+    "tcri": "tcri7",
+    "amount": "10.00E",
+    "conv_price": "88",
+    "display": "CB詢圈掛牌 49166 事欣科六 tcri7 10.00E 轉:88"
   },
   {
     "date": "2026-11-12",
@@ -158,6 +178,16 @@
     "amount": "40.00E",
     "conv_price": "134",
     "display": "CB競拍掛牌 23445 華邦電五 tcri3 40.00E 轉:134"
+  },
+  {
+    "date": "2026-05-26",
+    "type": "CB詢圈掛牌",
+    "code": "61966",
+    "name": "帆宣六",
+    "tcri": "tcri4",
+    "amount": "40E",
+    "conv_price": "22.03",
+    "display": "CB詢圈掛牌 61966 帆宣六 tcri4 40E 轉:22.03"
   },
   {
     "date": "2026-11-03",
