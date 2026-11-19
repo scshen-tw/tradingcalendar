@@ -1,103 +1,13 @@
 [
   {
-    "date": "2026-11-06",
-    "type": "CB詢圈掛牌",
-    "code": "24922",
-    "name": "華新科二",
-    "tcri": "tcri3",
-    "amount": "45.00E",
-    "conv_price": "497",
-    "display": "CB詢圈掛牌 24922 華新科二 tcri3 45.00E 轉:497"
-  },
-  {
-    "date": "2026-11-10",
-    "type": "CB詢圈掛牌",
-    "code": "66581",
-    "name": "聯策一",
-    "tcri": "tcri6",
-    "amount": "2.50E",
-    "conv_price": "180",
-    "display": "CB詢圈掛牌 66581 聯策一 tcri6 2.50E 轉:180"
-  },
-  {
-    "date": "2026-11-10",
-    "type": "CB詢圈掛牌",
-    "code": "65971",
-    "name": "立誠一",
-    "tcri": "tcri7",
-    "amount": "4.50E",
-    "conv_price": "69.5",
-    "display": "CB詢圈掛牌 65971 立誠一 tcri7 4.50E 轉:69.5"
-  },
-  {
-    "date": "2026-10-29",
-    "type": "CB競拍截止",
-    "code": "53814",
-    "name": "光譜四",
-    "tcri": "有擔",
-    "amount": "5.00E",
-    "conv_price": "22",
-    "display": "CB競拍截止 53814 光譜四 有擔 5.00E 轉:22"
-  },
-  {
-    "date": "2026-11-11",
-    "type": "CB競拍掛牌",
-    "code": "53814",
-    "name": "光譜四",
-    "tcri": "有擔",
-    "amount": "5.00E",
-    "conv_price": "22",
-    "display": "CB競拍掛牌 53814 光譜四 有擔 5.00E 轉:22"
-  },
-  {
-    "date": "2026-10-30",
-    "type": "CB競拍截止",
-    "code": "33395",
-    "name": "泰谷五",
-    "tcri": "有擔",
-    "amount": "5.00E",
-    "conv_price": "45.3",
-    "display": "CB競拍截止 33395 泰谷五 有擔 5.00E 轉:45.3"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "CB競拍掛牌",
-    "code": "33395",
-    "name": "泰谷五",
-    "tcri": "有擔",
-    "amount": "5.00E",
-    "conv_price": "45.3",
-    "display": "CB競拍掛牌 33395 泰谷五 有擔 5.00E 轉:45.3"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "CB詢圈掛牌",
-    "code": "25305",
-    "name": "華建五",
-    "tcri": "tcri7",
-    "amount": "4.00E",
-    "conv_price": "20.5",
-    "display": "CB詢圈掛牌 25305 華建五 tcri7 4.00E 轉:20.5"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "CB詢圈掛牌",
-    "code": "99589",
-    "name": "世紀鋼九",
-    "tcri": "tcri5",
-    "amount": "15.00E",
-    "conv_price": "88",
-    "display": "CB詢圈掛牌 99589 世紀鋼九 tcri5 15.00E 轉:88"
-  },
-  {
     "date": "2026-11-16",
     "type": "CB詢圈掛牌",
     "code": "23444",
     "name": "華邦電四",
     "tcri": "tcri3",
     "amount": "140.00E",
-    "conv_price": "140",
-    "display": "CB詢圈掛牌 23444 華邦電四 tcri3 140.00E 轉:140"
+    "conv_price": "138.3",
+    "display": "CB詢圈掛牌 23444 華邦電四 tcri3 140.00E 轉:138.3"
   },
   {
     "date": "2026-11-16",
@@ -166,8 +76,8 @@
     "name": "華邦電五",
     "tcri": "tcri3",
     "amount": "40.00E",
-    "conv_price": "134",
-    "display": "CB競拍截止 23445 華邦電五 tcri3 40.00E 轉:134"
+    "conv_price": "132.3",
+    "display": "CB競拍截止 23445 華邦電五 tcri3 40.00E 轉:132.3"
   },
   {
     "date": "2026-11-26",
@@ -176,17 +86,137 @@
     "name": "華邦電五",
     "tcri": "tcri3",
     "amount": "40.00E",
-    "conv_price": "134",
-    "display": "CB競拍掛牌 23445 華邦電五 tcri3 40.00E 轉:134"
+    "conv_price": "132.3",
+    "display": "CB競拍掛牌 23445 華邦電五 tcri3 40.00E 轉:132.3"
   },
   {
-    "date": "2026-05-26",
+    "date": "2026-11-19",
+    "type": "CB競拍截止",
+    "code": "77111",
+    "name": "永擎一",
+    "tcri": "tcri5",
+    "amount": "42.00E",
+    "conv_price": "550",
+    "display": "CB競拍截止 77111 永擎一 tcri5 42.00E 轉:550"
+  },
+  {
+    "date": "2026-12-02",
+    "type": "CB競拍掛牌",
+    "code": "77111",
+    "name": "永擎一",
+    "tcri": "tcri5",
+    "amount": "42.00E",
+    "conv_price": "550",
+    "display": "CB競拍掛牌 77111 永擎一 tcri5 42.00E 轉:550"
+  },
+  {
+    "date": "2026-11-23",
+    "type": "CB競拍截止",
+    "code": "45403",
+    "name": "全球傳動三",
+    "tcri": "有擔",
+    "amount": "3.00E",
+    "conv_price": "55.6",
+    "display": "CB競拍截止 45403 全球傳動三 有擔 3.00E 轉:55.6"
+  },
+  {
+    "date": "2026-12-04",
+    "type": "CB競拍掛牌",
+    "code": "45403",
+    "name": "全球傳動三",
+    "tcri": "有擔",
+    "amount": "3.00E",
+    "conv_price": "55.6",
+    "display": "CB競拍掛牌 45403 全球傳動三 有擔 3.00E 轉:55.6"
+  },
+  {
+    "date": "2026-04-05",
+    "type": "CB競拍掛牌",
+    "code": "52636",
+    "name": "智崴六",
+    "tcri": "有擔",
+    "amount": "6E",
+    "conv_price": "7.89",
+    "display": "CB競拍掛牌 52636 智崴六 有擔 6E 轉:7.89"
+  },
+  {
+    "date": "2026-12-18",
+    "type": "CB競拍掛牌",
+    "code": "23684",
+    "name": "金像電四",
+    "tcri": "tcri3",
+    "amount": "60E",
+    "conv_price": "53.06",
+    "display": "CB競拍掛牌 23684 金像電四 tcri3 60E 轉:53.06"
+  },
+  {
+    "date": "2026-02-30",
     "type": "CB詢圈掛牌",
-    "code": "61966",
-    "name": "帆宣六",
-    "tcri": "tcri4",
-    "amount": "40E",
-    "conv_price": "22.03",
-    "display": "CB詢圈掛牌 61966 帆宣六 tcri4 40E 轉:22.03"
+    "code": "77401",
+    "name": "熙特爾-創一",
+    "tcri": "tcri6",
+    "amount": "6.5E",
+    "conv_price": "6.00",
+    "display": "CB詢圈掛牌 77401 熙特爾-創一 tcri6 6.5E 轉:6.00"
+  },
+  {
+    "date": "2026-02-09",
+    "type": "CB詢圈掛牌",
+    "code": "49125",
+    "name": "聯德控股五KY",
+    "tcri": "tcri6",
+    "amount": "5E",
+    "conv_price": "6.70",
+    "display": "CB詢圈掛牌 49125 聯德控股五KY tcri6 5E 轉:6.70"
+  },
+  {
+    "date": "2026-02-25",
+    "type": "CB詢圈掛牌",
+    "code": "33741",
+    "name": "精材一",
+    "tcri": "tcri5",
+    "amount": "150E",
+    "conv_price": "27.14",
+    "display": "CB詢圈掛牌 33741 精材一 tcri5 150E 轉:27.14"
+  },
+  {
+    "date": "2026-11-13",
+    "type": "股票競拍截止",
+    "code": "7869",
+    "name": "宏于電機",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "201.11",
+    "display": "股票競拍截止 7869 宏于電機"
+  },
+  {
+    "date": "2026-11-26",
+    "type": "股票競拍掛牌",
+    "code": "7869",
+    "name": "宏于電機",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "201.11",
+    "display": "股票競拍掛牌 7869 宏于電機 承銷價:201.11"
+  },
+  {
+    "date": "2026-11-18",
+    "type": "股票競拍截止",
+    "code": "7889",
+    "name": "騰勢",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍截止 7889 騰勢"
+  },
+  {
+    "date": "2026-12-01",
+    "type": "股票競拍掛牌",
+    "code": "7889",
+    "name": "騰勢",
+    "tcri": "",
+    "amount": "",
+    "conv_price": "",
+    "display": "股票競拍掛牌 7889 騰勢"
   }
 ]
