@@ -206,7 +206,7 @@
     "name": "騰勢",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
+    "conv_price": "47.19",
     "display": "股票競拍截止 7889 騰勢"
   },
   {
@@ -216,7 +216,7 @@
     "name": "騰勢",
     "tcri": "",
     "amount": "",
-    "conv_price": "",
-    "display": "股票競拍掛牌 7889 騰勢"
+    "conv_price": "47.19",
+    "display": "股票競拍掛牌 7889 騰勢 承銷價:47.19"
   }
 ]
