@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-11-16",
-    "type": "CB詢圈掛牌",
-    "code": "23444",
-    "name": "華邦電四",
-    "tcri": "tcri3",
-    "amount": "140.00E",
-    "conv_price": "138.3",
-    "display": "CB詢圈掛牌 23444 華邦電四 tcri3 140.00E 轉:138.3"
-  },
-  {
-    "date": "2026-11-16",
-    "type": "CB詢圈掛牌",
-    "code": "35972",
-    "name": "映興二",
-    "tcri": "tcri6",
-    "amount": "2.00E",
-    "conv_price": "41.2",
-    "display": "CB詢圈掛牌 35972 映興二 tcri6 2.00E 轉:41.2"
-  },
-  {
     "date": "2026-11-17",
     "type": "CB詢圈掛牌",
     "code": "32896",
@@ -148,16 +128,6 @@
     "amount": "60E",
     "conv_price": "53.06",
     "display": "CB競拍掛牌 23684 金像電四 tcri3 60E 轉:53.06"
-  },
-  {
-    "date": "2026-02-30",
-    "type": "CB詢圈掛牌",
-    "code": "77401",
-    "name": "熙特爾-創一",
-    "tcri": "tcri6",
-    "amount": "6.5E",
-    "conv_price": "6.00",
-    "display": "CB詢圈掛牌 77401 熙特爾-創一 tcri6 6.5E 轉:6.00"
   },
   {
     "date": "2026-02-09",
